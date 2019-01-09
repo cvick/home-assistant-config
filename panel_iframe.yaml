@@ -1,0 +1,16 @@
+# Make sure to follow double spacing for entries
+
+nodered:
+  title: 'Node-RED'
+  url: 'http://10.0.0.70:1880'
+  icon: mdi:resistor-nodes
+
+configurator:
+  title: 'Configurator'
+  url: 'http://10.0.0.70:3218'
+  icon: mdi:wrench
+
+zwave:
+  title: 'Z-Wave'
+  url: 'http://10.0.0.70:8123/config/zwave'
+  icon: mdi:z-wave

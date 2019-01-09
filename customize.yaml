@@ -1,0 +1,74 @@
+# Rename devices and fix action names
+
+## Thermostats
+
+climate.downstairs:
+  friendly_name: Downstairs Thermostat
+  operation_list:
+  - heat
+  - 'off'
+  - cool
+  - auto
+  icon: mdi:thermostat-box
+
+climate.upstairs:
+  friendly_name: Upstairs Thermostat
+  operation_list:
+  - heat
+  - 'off'
+  - cool
+  - auto
+  icon: mdi:thermostat-box
+
+## Lights
+switch.lights:
+  friendly_name: Chris's Room
+  icon: mdi:lightbulb-outline
+  
+switch.living_room_lights:
+  friendly_name: Living Room
+  icon: mdi:lightbulb-outline
+  
+switch.porch_light:
+  icon: mdi:lightbulb-outline
+  emulated_hue: true
+
+light.kitchen_lights:
+  icon: mdi:lightbulb-outline
+  emulated_hue: true
+
+switch.stairs_light:
+  icon: mdi:lightbulb-outline
+  emulated_hue: true
+
+## Weather
+
+sensor.dark_sky_temperature:
+  friendly_name: Current Temp
+sensor.dark_sky_temperature_max:
+  friendly_name: Today's High
+sensor.yr_symbol:
+  friendly_name: Forecast
+sensor.dark_sky_precip_probability:
+  friendly_name: Chance of Rain
+sensor.dark_sky_daytime_high_temperature:
+  friendly_name: Today's High
+sensor.dark_sky_summary:
+  friendly_name: Current Condition
+  
+## Hide Things
+
+sensor.indoor_temperature_downstairs:
+  hidden: true
+      
+sensor.indoor_temperature_upstairs:
+  hidden: true
+
+remote.great_room_apple_tv:
+  hidden: true
+
+media_player.chrome:
+  hidden: true
+
+media_player.great_room_apple_tv:
+  hidden: true

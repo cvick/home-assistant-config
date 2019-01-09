@@ -1,0 +1,64 @@
+# Custom Groups
+
+thermostats:
+  name: Thermostats
+#  view: yes
+  entities:
+    - climate.downstairs
+    - climate.upstairs
+
+lights:
+  name: Lights
+#  view: yes
+  entities:
+    - switch.lights
+    - switch.living_room_lights
+    - light.kitchen_lights
+    - switch.porch_light
+    - switch.stairs_light
+
+# Tabs
+
+thermostats_tab:
+  name: Thermostats
+  view: yes
+  entities:
+    - climate.downstairs
+    - climate.upstairs
+    # - camera.grafana_temp
+
+lights_tab:
+  name: Lights
+  view: yes
+  entities:
+    - switch.lights
+    - switch.living_room_lights
+    - light.kitchen_lights
+    - switch.porch_light
+    - switch.stairs_light
+
+## Floor Setup
+
+first_floor:
+  name: First Floor
+  entities:
+    - climate.downstairs
+    - switch.living_room_lights
+    - light.kitchen_lights
+    - switch.porch_light
+    - switch.stairs_light
+
+second_floor:
+  name: Second Floor
+  entities:
+    - climate.upstairs
+    - switch.lights
+
+floors:
+  name: Floors
+  view: yes
+  entities:
+    - group.first_floor
+    - group.second_floor
+
+# Graphs
