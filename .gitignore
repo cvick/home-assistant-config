@@ -3,8 +3,6 @@
 !.gitignore
 !*.md
 
-
-
 # Ignore these files and folders
 .cloud/
 .git/
