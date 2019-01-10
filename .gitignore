@@ -14,7 +14,7 @@
 deps/
 emulated_hue_ids.json
 graphs/
-home-assista
+home-assistant.log
 ip_bans.yaml
 home-assistant_v2.db
 homekit.yaml
