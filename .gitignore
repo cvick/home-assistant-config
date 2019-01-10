@@ -1,3 +1,11 @@
+# Whitelist files / extensions
+!*.yaml
+!.gitignore
+!*.md
+
+
+
+# Ignore these files and folders
 .cloud/
 .git/
 .HA_VERSION
@@ -8,7 +16,8 @@
 deps/
 emulated_hue_ids.json
 graphs/
-home-assistant.log
+home-assista
+ip_bans.yaml
 home-assistant_v2.db
 homekit.yaml
 known_devices.yaml
