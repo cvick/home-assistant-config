@@ -10,7 +10,7 @@ configurator:
   url: 'http://10.0.0.70:3218'
   icon: mdi:wrench
 
-zwave:
-  title: 'Z-Wave'
-  url: 'http://10.0.0.70:8123/config/zwave'
-  icon: mdi:z-wave
+#zwave:
+#  title: 'Z-Wave'
+#  url: 'http://10.0.0.70:8123/config/zwave'
+#  icon: mdi:z-wave
