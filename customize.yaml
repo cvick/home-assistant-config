@@ -55,7 +55,7 @@ sensor.dark_sky_daytime_high_temperature:
   friendly_name: Today's High
 sensor.dark_sky_summary:
   friendly_name: Current Condition
-  
+
 ## Hide Things
 
 sensor.indoor_temperature_downstairs:
