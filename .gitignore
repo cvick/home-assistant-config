@@ -11,6 +11,7 @@
 .ios.conf
 .storage/
 .uuid
+custom_components/
 deps/
 emulated_hue_ids.json
 graphs/
