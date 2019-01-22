@@ -18,7 +18,7 @@ graphs/
 home-assistant.log
 ip_bans.yaml
 home-assistant_v2.db
-homekit.yaml
+# homekit.yaml
 known_devices.yaml
 node-red/
 options.xml
