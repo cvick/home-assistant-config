@@ -1,24 +1,26 @@
 homeassistant:
   # Name of the location where Home Assistant is running
   name: Home
+
   # Location required to calculate the time the sun rises and sets
   latitude: !secret latitude
   longitude: !secret longitude
+
   # Impacts weather/sunrise data (altitude above sea level in meters)
   elevation: !secret elevation
+
   # metric for Metric, imperial for Imperial
   unit_system: imperial
+
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: !secret time_zone
+
   # Customization file
   customize: !include customize.yaml
   customize_glob: !include customize_glob.yaml
-  
+
 influxdb:
   host: 10.0.0.80
-
-# Show links to resources in log and frontend
-# introduction:
 
 # Enables the frontend
 frontend:
@@ -102,7 +104,7 @@ sensor:
         unit_of_measurement: "°F"
         entity_id: climate.downstairs
         value_template: "{{ state_attr('climate.downstairs', 'current_temperature')}}"
-        
+
       indoor_temperature_upstairs:
         friendly_name: "Upstairs Temperature"
         unit_of_measurement: "°F"
@@ -116,14 +118,18 @@ tts:
 # Cloud
 #cloud:
 
+# Groups
 group: !include groups.yaml
+
+# Automations
 automation: !include automations.yaml
+
+# Scripts
 script: !include scripts.yaml
 
 # Custom Devices
 
 ## Wemo Plugs
-
 wemo:
   static:
     - 10.0.0.110

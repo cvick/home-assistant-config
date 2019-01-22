@@ -24,11 +24,11 @@ climate.upstairs:
 switch.lights:
   friendly_name: Chris's Room
   icon: mdi:lightbulb-outline
-  
+
 switch.living_room_lights:
   friendly_name: Living Room
   icon: mdi:lightbulb-outline
-  
+
 switch.porch_light:
   icon: mdi:lightbulb-outline
   emulated_hue: true
@@ -60,7 +60,7 @@ sensor.dark_sky_summary:
 
 sensor.indoor_temperature_downstairs:
   hidden: true
-      
+
 sensor.indoor_temperature_upstairs:
   hidden: true
 
