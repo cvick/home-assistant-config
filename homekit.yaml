@@ -1,0 +1,11 @@
+auto_start: false
+
+filter:
+    include_entities:
+      - switch.lights
+      - switch.living_room_lights
+      - light.kitchen_lights
+      - switch.porch_light
+      - switch.stairs_light
+      - climate.downstairs
+      - climate.upstairs
