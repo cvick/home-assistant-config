@@ -1,3 +1,6 @@
+# Automations
+
+## Start HomeKit after Z-Wave network is up and ready (otherwise entities may not be added to HomeKit)
   - alias: 'Start HomeKit'
     trigger:
       - platform: event
