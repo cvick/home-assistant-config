@@ -27,5 +27,6 @@ plex.conf
 pyozw.sqlite
 secrets.yaml
 tts/
+www/
 zwcfg*
 zwscene.xml
