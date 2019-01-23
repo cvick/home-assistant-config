@@ -1,0 +1,25 @@
+# Weather
+  - platform: darksky
+    api_key: !secret darksky_api_key
+    monitored_conditions:
+      - temperature_high
+      - temperature
+      - precip_probability
+      - summary
+    update_interval: 600
+
+# Sensor Templates
+
+  - platform: template
+    sensors:
+      indoor_temperature_downstairs:
+        friendly_name: "Downstairs Temperature"
+        unit_of_measurement: "°F"
+        entity_id: climate.downstairs
+        value_template: "{{ state_attr('climate.downstairs', 'current_temperature')}}"
+
+      indoor_temperature_upstairs:
+        friendly_name: "Upstairs Temperature"
+        unit_of_measurement: "°F"
+        entity_id: climate.upstairs
+        value_template: "{{ state_attr('climate.upstairs', 'current_temperature')}}"
