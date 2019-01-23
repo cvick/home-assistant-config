@@ -130,10 +130,7 @@ script: !include scripts.yaml
 # Custom Devices
 
 ## Wemo Plugs
-wemo:
-  static:
-    - 10.0.0.110
-    - 10.0.0.111
+wemo: !include wemo.yaml
 
 ## Thermostats (Honeywell 9000)
 
