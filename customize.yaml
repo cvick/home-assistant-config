@@ -72,3 +72,6 @@ media_player.chrome:
 
 media_player.great_room_apple_tv:
   hidden: true
+
+media_player.living_room_firetv:
+  hidden: true
