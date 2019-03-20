@@ -89,6 +89,9 @@ sensor: !include sensors.yaml
 tts:
   - platform: google
 
+# System Health
+system_health:
+
 # Cloud
 #cloud:
 
