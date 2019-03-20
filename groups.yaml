@@ -1,11 +1,11 @@
 # Custom Groups
 
-thermostats:
-  name: Thermostats
-#  view: yes
-  entities:
-    - climate.downstairs
-    - climate.upstairs
+# thermostats:
+#   name: Thermostats
+# #  view: yes
+#   entities:
+#     - climate.downstairs
+#     - climate.upstairs
 
 lights:
   name: Lights
