@@ -6,7 +6,7 @@
       - temperature
       - precip_probability
       - summary
-    update_interval: 600
+    scan_interval: 600
 
 # Sensor Templates
 
