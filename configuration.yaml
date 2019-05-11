@@ -85,6 +85,7 @@ camera: !include cameras.yaml
 
 # Sensors
 sensor: !include sensors.yaml
+
 # Text to speech
 tts:
   - platform: google
@@ -117,6 +118,8 @@ climate 1:
     password: !secret honeywell_pass
     region: us
     scan_interval: 600
+
+cover: !include covers.yaml
 
 # Custom Graphs
 

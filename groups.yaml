@@ -61,4 +61,12 @@ floors:
     - group.first_floor
     - group.second_floor
 
+group:
+  garage:
+    name: Garage
+    entities:
+      - cover.garage
+      - sensor.garage_status
+      - sensor.garage_car_present
+
 # Graphs
