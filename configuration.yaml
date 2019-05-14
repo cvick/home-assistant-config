@@ -122,6 +122,8 @@ climate 1:
     region: us
     scan_interval: 600
 
+cover: !include covers.yaml
+
 # Custom Graphs
 
 ## Indoor Temperature Graphs

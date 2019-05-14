@@ -56,6 +56,14 @@ sensor.dark_sky_daytime_high_temperature:
 sensor.dark_sky_summary:
   friendly_name: Current Condition
 
+## Covers
+
+sensor.garage_car_present:
+    icon: mdi:car
+
+cover.garage:
+    homebridge_cover_type: garage_door
+
 ## Hide Things
 
 sensor.indoor_temperature_downstairs:

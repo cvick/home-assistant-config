@@ -23,3 +23,36 @@
         unit_of_measurement: "°F"
         entity_id: climate.upstairs
         value_template: "{{ state_attr('climate.upstairs', 'current_temperature')}}"
+
+  - platform: template
+    sensors:
+      garage_status:
+        friendly_name: 'Garage Door Status'
+        value_template: '{% if states.cover.Garage %}
+          {% if states.cover.Garage.attributes["door_state"] == "open" %}
+            Open
+          {% elif states.cover.Garage.attributes["door_state"] == "closed" %}
+            Closed
+          {% elif states.cover.Garage.attributes["door_state"] == "opening" %}
+            Opening
+          {% elif states.cover.Garage.attributes["door_state"] == "closing" %}
+            Closing
+          {% else %}
+            Unknown
+          {% endif %}
+          {% else %}
+          n/a
+          {% endif %}'
+      garage_car_present:
+        friendly_name: 'Car in Garage'
+        value_template: '{% if states.cover.Garage %}
+          {% if states.cover.Garage.state == "open" %}
+            n/a
+          {% elif ((states.cover.Garage.attributes["distance_sensor"] > 40) and (states.cover.Garage.attributes["distance_sensor"] < 100)) %}
+            Yes
+          {% else %}
+            No
+          {% endif %}
+          {% else %}
+          n/a
+          {% endif %}'
