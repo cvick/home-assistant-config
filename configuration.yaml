@@ -87,11 +87,14 @@ camera: !include cameras.yaml
 sensor: !include sensors.yaml
 
 # Text to speech
-tts:
-  - platform: google
+#tts:
+#  - platform: google_translate
+#    service_name: google_say
 
 # System Health
 system_health:
+
+mobile_app:
 
 # Cloud
 #cloud:
