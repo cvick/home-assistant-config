@@ -3,4 +3,4 @@ covers:
     garage:
       host:  10.0.0.100
       device_key: !secret opengarage
-      name:  Garage
+      name:  Garage Door
