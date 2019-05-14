@@ -1,13 +1,23 @@
 # Automations
 
 ## Start HomeKit after Z-Wave network is up and ready (otherwise entities may not be added to HomeKit)
+#  - alias: 'Start HomeKit'
+#    trigger:
+#      - platform: event
+#        event_type: zwave.network_ready
+#      - platform: event
+#        event_type: zwave.network_complete
+#      - platform: event
+#        event_type: zwave.network_complete_some_dead
+#    action:
+#      - service: homekit.start
+
+## Start HomeKit after Wemo devices are up and ready (otherwise entities may not be added to HomeKit)
   - alias: 'Start HomeKit'
     trigger:
-      - platform: event
-        event_type: zwave.network_ready
-      - platform: event
-        event_type: zwave.network_complete
-      - platform: event
-        event_type: zwave.network_complete_some_dead
+    - event: start
+      platform: homeassistant
+    condition: []
     action:
-      - service: homekit.start
+    - delay: 00:05  # Waits 5 minutes
+    - service: homekit.start
