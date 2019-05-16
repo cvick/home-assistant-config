@@ -48,7 +48,7 @@
         value_template: '{% if states.cover.Garage %}
           {% if states.cover.Garage.state == "open" %}
             n/a
-          {% elif ((states.cover.Garage.attributes["distance_sensor"] > 40) and (states.cover.Garage.attributes["distance_sensor"] < 100)) %}
+          {% elif ((states.cover.Garage.attributes["distance_sensor"] > 50) and (states.cover.Garage.attributes["distance_sensor"] < 150)) %}
             Yes
           {% else %}
             No
