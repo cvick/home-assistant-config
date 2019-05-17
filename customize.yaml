@@ -89,3 +89,33 @@ media_player.firefox:
 
 media_player.chris_s_iphone:
   hidden: true
+
+sensor.bssid:
+  hidden: true
+
+sensor.ssid:
+  hidden: true
+
+sensor.connection_type:
+  hidden: true
+
+sensor.geocoded_location:
+  hidden: true
+
+sensor.battery_state:
+  hidden: true
+
+sensor.battery_level:
+  hidden: true
+
+sensor.chriss_iphone_battery_level:
+  hidden: true
+
+sensor.chriss_iphone_battery_state:
+  hidden: true
+
+sensor.last_update_trigger:
+  hidden: true
+
+sensor.sim_1:
+  hidden: true
