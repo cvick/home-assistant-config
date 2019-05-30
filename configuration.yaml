@@ -38,6 +38,7 @@ http:
   use_x_forwarded_for: true
   trusted_proxies: 10.0.0.85
 
+api:
 
 # Checks for available updates
 # Note: This component will send some information about your system to
@@ -71,6 +72,10 @@ sun:
 
 # iOS Component
 ios:
+
+# Enable Alexa through haaska
+alexa:
+  smart_home:
 
 # HomeKit:
 homekit: !include homekit.yaml
