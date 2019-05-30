@@ -32,8 +32,12 @@ customizer:
   custom_ui: local
 
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-# http:
+http:
 #   base_url: example.duckdns.org:8123
+  base_url: https://ha.chrisvick.com
+  use_x_forwarded_for: true
+  trusted_proxies: 10.0.0.85
+
 
 # Checks for available updates
 # Note: This component will send some information about your system to
