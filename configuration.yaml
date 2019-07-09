@@ -117,6 +117,9 @@ automation: !include automations.yaml
 # Scripts
 script: !include scripts.yaml
 
+# Scenes
+scene: !include scenes.yaml
+
 # Custom Devices
 
 ## Wemo Plugs
