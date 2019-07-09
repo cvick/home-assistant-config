@@ -83,7 +83,7 @@ homekit: !include homekit.yaml
 # Enables emulated-hue so Alexa can control devices
 ## Devices are not included automatically for more control
 ## To add a device, add emulated_hue: true to the entity in customize.yaml
-emulated_hue_hidden:
+emulated_hue:
   expose_by_default: false
 
 # Add links to sidebar
