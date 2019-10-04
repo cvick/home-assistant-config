@@ -37,6 +37,8 @@ http:
   base_url: https://ha.chrisvick.com
   use_x_forwarded_for: true
   trusted_proxies: 10.0.0.85
+  login_attempts_threshold: 3
+  ip_ban_enabled: true
 
 api:
 
