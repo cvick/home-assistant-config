@@ -1,23 +1,22 @@
-# Automations
-
-## Start HomeKit after Z-Wave network is up and ready (otherwise entities may not be added to HomeKit)
-#  - alias: 'Start HomeKit'
-#    trigger:
-#      - platform: event
-#        event_type: zwave.network_ready
-#      - platform: event
-#        event_type: zwave.network_complete
-#      - platform: event
-#        event_type: zwave.network_complete_some_dead
-#    action:
-#      - service: homekit.start
-
-## Start HomeKit after Wemo devices are up and ready (otherwise entities may not be added to HomeKit)
-  - alias: 'Start HomeKit'
-    trigger:
-    - event: start
-      platform: homeassistant
-    condition: []
-    action:
-    - delay: 00:05  # Waits 5 minutes
-    - service: homekit.start
+- alias: Start HomeKit
+  trigger:
+  - event: start
+    platform: homeassistant
+  condition: []
+  action:
+  - delay: 00:05
+  - service: homekit.start
+  id: 25263d9c6764471886a958ff3683af7d
+- id: '1574386270638'
+  alias: Kitchen lights at dusk
+  description: ''
+  trigger:
+  - event: sunset
+    offset: '-30'
+    platform: sun
+  condition:
+  - condition: state
+    entity_id: light.kitchen_lights
+    state: 'off'
+  action:
+  - scene: scene.kitchen_lights_to_3
