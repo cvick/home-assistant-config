@@ -32,8 +32,15 @@ customizer:
   custom_ui: local
 
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-# http:
+http:
 #   base_url: example.duckdns.org:8123
+  base_url: https://ha.chrisvick.com
+  use_x_forwarded_for: true
+  trusted_proxies: 10.0.0.85
+  login_attempts_threshold: 3
+  ip_ban_enabled: true
+
+api:
 
 # Checks for available updates
 # Note: This component will send some information about your system to
@@ -68,6 +75,10 @@ sun:
 # iOS Component
 ios:
 
+# Enable Alexa through haaska
+alexa:
+  smart_home:
+
 # HomeKit:
 homekit: !include homekit.yaml
 
@@ -76,6 +87,11 @@ homekit: !include homekit.yaml
 ## To add a device, add emulated_hue: true to the entity in customize.yaml
 emulated_hue:
   expose_by_default: false
+
+# Real Hue bridge
+hue:
+  bridges:
+    - host: 10.0.0.112
 
 # Add links to sidebar
 panel_iframe: !include panel_iframe.yaml
@@ -107,6 +123,9 @@ automation: !include automations.yaml
 
 # Scripts
 script: !include scripts.yaml
+
+# Scenes
+scene: !include scenes.yaml
 
 # Custom Devices
 

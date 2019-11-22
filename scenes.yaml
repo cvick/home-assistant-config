@@ -1,0 +1,16 @@
+- name: Open the Garage Door
+  entities:
+    cover.garage: true
+  id: ac7857ca243d456086551b5eec89f9f3
+- name: Close the Garage Door
+  entities:
+    cover.garage: false
+  id: b402f8fae653458a878d62c878bb6422
+- id: '1574386878653'
+  name: Kitchen Lights to 3%
+  entities:
+    light.kitchen_lights:
+      brightness: 3
+      state: 'on'
+    zwave.zooz_unknown_typeb112_id261c_2:
+      state: ready
