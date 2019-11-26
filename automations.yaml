@@ -1,4 +1,5 @@
-- alias: Start HomeKit
+- id: '25263d9c6764471886a958ff3683af7d'
+  alias: Start HomeKit
   trigger:
   - event: start
     platform: homeassistant
@@ -6,13 +7,12 @@
   action:
   - delay: 00:05
   - service: homekit.start
-  id: 25263d9c6764471886a958ff3683af7d
+
 - id: '1574386270638'
   alias: Kitchen lights at dusk
-  description: ''
   trigger:
   - event: sunset
-    offset: '-30'
+    offset: '-00:30:00'
     platform: sun
   condition:
   - condition: state
