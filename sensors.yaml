@@ -56,3 +56,10 @@
           {% else %}
           n/a
           {% endif %}'
+
+  - platform: rtorrent
+    url: !secret rtorrent_url
+    monitored_variables:
+      - 'current_status'
+      - 'download_speed'
+      - 'upload_speed'
