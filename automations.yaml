@@ -18,5 +18,12 @@
   - condition: state
     entity_id: light.kitchen_lights
     state: 'off'
+  - condition: time
+    weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
   action:
   - scene: scene.kitchen_lights_to_3
