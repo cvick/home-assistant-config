@@ -10,3 +10,4 @@ filter:
       - climate.downstairs
       - climate.upstairs
       - cover.garage
+      - switch.couch_light
