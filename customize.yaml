@@ -41,6 +41,9 @@ switch.stairs_light:
   icon: mdi:lightbulb-outline
   emulated_hue: true
 
+light.couch_light:
+  emulated_hue: true
+
 ## Weather
 
 sensor.dark_sky_temperature:
