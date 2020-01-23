@@ -16,6 +16,7 @@ lights:
     - light.kitchen_lights
     - switch.porch_light
     - switch.stairs_light
+    - light.couch_light
 
 # Tabs
 
@@ -36,6 +37,7 @@ lights_tab:
     - light.kitchen_lights
     - switch.porch_light
     - switch.stairs_light
+    - light.couch_light
 
 ## Floor Setup
 
@@ -47,6 +49,7 @@ first_floor:
     - light.kitchen_lights
     - switch.porch_light
     - switch.stairs_light
+    - light.couch_light
 
 second_floor:
   name: Second Floor
