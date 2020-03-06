@@ -11,14 +11,14 @@ views:
       - entity: sensor.dark_sky_temperature
       - entity: sensor.dark_sky_precip_probability
       - entity: sensor.plex
-      - entity: sensor.us_coronavirus_confirmed
-      - entity: sensor.us_coronavirus_recovered
-      - entity: sensor.us_coronavirus_deaths
-      - entity: sensor.us_coronavirus_current
-      - entity: sensor.worldwide_coronavirus_confirmed
-      - entity: sensor.worldwide_coronavirus_recovered
-      - entity: sensor.worldwide_coronavirus_deaths
-      - entity: sensor.worldwide_coronavirus_current
+      #- entity: sensor.us_coronavirus_confirmed
+      #- entity: sensor.us_coronavirus_recovered
+      #- entity: sensor.us_coronavirus_deaths
+      #- entity: sensor.us_coronavirus_current
+      #- entity: sensor.worldwide_coronavirus_confirmed
+      #- entity: sensor.worldwide_coronavirus_recovered
+      #- entity: sensor.worldwide_coronavirus_deaths
+      #- entity: sensor.worldwide_coronavirus_current
       - entity: sun.sun
     cards:
       - type: entities
