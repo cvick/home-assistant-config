@@ -30,14 +30,14 @@ views:
         show_header_toggle: true
       - type: entities
         entities:
-          - zwave.zooz_zen23_toggle_switch_v2_2
           - switch.stairs_light
+          - switch.living_room_lights
+          - light.kitchen_lights
+          - switch.porch_light
         title: Downstairs
         show_header_toggle: true
       - type: entities
         entities:
-          - entity: zwave.zooz_unknown_typeb112_id261c_2
-            name: Lights
           - entity: light.kitchen_lights
             name: Lights
         title: Kitchen
@@ -45,13 +45,11 @@ views:
       - type: entities
         entities:
           - switch.living_room_lights
-          - zwave.jasco_products_14295_in_wall_smart_toggle_dimmer
           - light.couch_light
         title: Living Room
         show_header_toggle: true
       - type: entities
         entities:
-          - zwave.zooz_zen23_toggle_switch_v2
           - switch.porch_light
         title: Outside
         show_header_toggle: true
@@ -155,4 +153,4 @@ views:
       - type: thermostat
         entity: climate.upstairs
 
-card: !include lovelace/glance-coronavirus.yaml
+    cards: !include lovelace/glance-coronavirus.yaml
