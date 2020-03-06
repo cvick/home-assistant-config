@@ -127,6 +127,10 @@ script: !include scripts.yaml
 # Scenes
 scene: !include scenes.yaml
 
+# Enable Lovelace YAML mode
+lovelace:
+  mode: yaml
+
 # Custom Devices
 
 ## Wemo Plugs
@@ -142,7 +146,3 @@ climate 1:
     scan_interval: 600
 
 cover: !include covers.yaml
-
-# Custom Graphs
-
-## Indoor Temperature Graphs
