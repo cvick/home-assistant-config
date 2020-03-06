@@ -1,6 +1,5 @@
 title: Home Assistant
 views:
-  - !include lovelace/glance-coronavirus.yaml
   - path: default_view
     title: Home
     badges:
@@ -154,3 +153,5 @@ views:
         show_header_toggle: true
       - type: thermostat
         entity: climate.upstairs
+
+  - !include lovelace/glance-coronavirus.yaml
