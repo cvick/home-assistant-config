@@ -1,0 +1,188 @@
+title: Home Assistant
+views:
+  - path: default_view
+    title: Home
+    badges:
+      - entity: binary_sensor.updater
+      - entity: person.chris
+      - entity: sensor.rtorrent_down_speed
+      - entity: sensor.rtorrent_up_speed
+      - entity: sensor.dark_sky_summary
+      - entity: sensor.dark_sky_temperature
+      - entity: sensor.dark_sky_precip_probability
+      - entity: sensor.plex
+      - entity: sensor.us_coronavirus_confirmed
+      - entity: sensor.us_coronavirus_recovered
+      - entity: sensor.us_coronavirus_deaths
+      - entity: sensor.us_coronavirus_current
+      - entity: sensor.worldwide_coronavirus_confirmed
+      - entity: sensor.worldwide_coronavirus_recovered
+      - entity: sensor.worldwide_coronavirus_deaths
+      - entity: sensor.worldwide_coronavirus_current
+      - entity: sun.sun
+    cards:
+      - type: entities
+        entities:
+          - light.hue_color_lamp_3
+          - light.hue_color_lamp_2
+          - light.hue_color_lamp_1
+        title: Chris's Room
+        show_header_toggle: true
+      - type: entities
+        entities:
+          - zwave.zooz_zen23_toggle_switch_v2_2
+          - switch.stairs_light
+        title: Downstairs
+        show_header_toggle: true
+      - type: entities
+        entities:
+          - entity: zwave.zooz_unknown_typeb112_id261c_2
+            name: Lights
+          - entity: light.kitchen_lights
+            name: Lights
+        title: Kitchen
+        show_header_toggle: true
+      - type: entities
+        entities:
+          - switch.living_room_lights
+          - zwave.jasco_products_14295_in_wall_smart_toggle_dimmer
+          - light.couch_light
+        title: Living Room
+        show_header_toggle: true
+      - type: entities
+        entities:
+          - zwave.zooz_zen23_toggle_switch_v2
+          - switch.porch_light
+        title: Outside
+        show_header_toggle: true
+      - type: entities
+        entities:
+          - switch.lights
+          - switch.living_room_lights
+          - light.kitchen_lights
+          - switch.porch_light
+          - switch.stairs_light
+          - light.couch_light
+        title: Lights
+        show_header_toggle: true
+      - type: entities
+        entities:
+          - switch.living_room_lights
+          - light.kitchen_lights
+          - switch.porch_light
+          - switch.stairs_light
+          - light.couch_light
+        title: First Floor
+        show_header_toggle: true
+      - type: thermostat
+        entity: climate.downstairs
+      - type: entities
+        entities:
+          - switch.lights
+        title: Second Floor
+        show_header_toggle: true
+      - type: thermostat
+        entity: climate.upstairs
+      - type: entities
+        entities:
+          - cover.garage
+          - entity: sensor.garage_status
+            name: Door Status
+          - sensor.garage_car_present
+        title: Garage
+        show_header_toggle: true
+      - type: picture-entity
+        entity: camera.grafana_temp
+      - type: entities
+        entities:
+          - light.bedroom
+          - light.chris_s_room
+        title: Light
+      - type: media-control
+        entity: media_player.living_room_firetv
+      - type: media-control
+        entity: media_player.chrome_2
+      - type: media-control
+        entity: media_player.safari
+      - type: media-control
+        entity: media_player.chris_s_iphone
+      - type: media-control
+        entity: media_player.chrome_3
+      - type: media-control
+        entity: media_player.firefox
+      - type: media-control
+        entity: media_player.thinkbuntu
+      - type: media-control
+        entity: media_player.firefox_2
+      - type: media-control
+        entity: media_player.plex_chriss_room
+      - type: media-control
+        entity: media_player.plex_generic
+      - type: media-control
+        entity: media_player.plex_safari
+      - type: media-control
+        entity: media_player.plex_unnamed_device
+      - type: media-control
+        entity: media_player.plex_chrome
+      - type: entities
+        entities:
+          - remote.great_room_apple_tv
+        title: Remote
+      - type: entities
+        entities:
+          - scene.kitchen_lights_to_3
+          - scene.close_the_garage_door
+          - scene.open_the_garage_door
+        title: Scene
+      - type: entities
+        entities:
+          - zwave.aeotec_zw090_zstick_gen5_us
+        title: Z-Wave
+  - path: thermostats_tab
+    title: Thermostats
+    badges: []
+    cards:
+      - type: thermostat
+        entity: climate.downstairs
+      - type: thermostat
+        entity: climate.upstairs
+  - path: lights_tab
+    title: Lights
+    badges: []
+    cards:
+      - type: entities
+        entities:
+          - light.kitchen_lights
+          - light.couch_light
+        title: Light
+      - type: entities
+        entities:
+          - switch.lights
+          - switch.living_room_lights
+          - switch.porch_light
+          - switch.stairs_light
+        title: Switch
+  - path: floors
+    title: Floors
+    badges: []
+    cards:
+      - type: entities
+        entities:
+          - switch.living_room_lights
+          - light.kitchen_lights
+          - switch.porch_light
+          - switch.stairs_light
+          - light.couch_light
+        title: First Floor
+        show_header_toggle: true
+      - type: thermostat
+        entity: climate.downstairs
+      - type: entities
+        entities:
+          - switch.lights
+        title: Second Floor
+        show_header_toggle: true
+      - type: thermostat
+        entity: climate.upstairs
+
+card: !include lovelace/glance-coronavirus.yaml
