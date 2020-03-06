@@ -1,4 +1,5 @@
 title: Home Assistant
+resources: !include lovelace/resources.yaml
 views:
   - path: default_view
     title: Home
