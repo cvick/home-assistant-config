@@ -1,6 +1,7 @@
   title: Coronavirus
   id: coronavirus
   icon: mdi:biohazard
+  path: coronavirus
   cards:
     - type: glance
       title: Worldwide
