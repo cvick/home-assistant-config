@@ -1,17 +1,18 @@
 title: Home Assistant
 views:
+  - !include lovelace/glance-coronavirus.yaml
   - path: default_view
     title: Home
     badges:
-      - entity: binary_sensor.updater
-      - entity: person.chris
-      - entity: sensor.rtorrent_down_speed
-      - entity: sensor.rtorrent_up_speed
-      - entity: sensor.dark_sky_summary
-      - entity: sensor.dark_sky_temperature
-      - entity: sensor.dark_sky_precip_probability
-      - entity: sun.sun
-      - entity: sensor.plex
+      - binary_sensor.updater
+      - person.chris
+      - sensor.rtorrent_down_speed
+      - sensor.rtorrent_up_speed
+      - sensor.dark_sky_summary
+      - sensor.dark_sky_temperature
+      - sensor.dark_sky_precip_probability
+      - sun.sun
+      - sensor.plex
       #- entity: sensor.us_coronavirus_confirmed
       #- entity: sensor.us_coronavirus_recovered
       #- entity: sensor.us_coronavirus_deaths
@@ -106,6 +107,7 @@ views:
         entities:
           - zwave.aeotec_zw090_zstick_gen5_us
         title: Z-Wave
+
   - path: thermostats_tab
     title: Thermostats
     badges: []
@@ -152,5 +154,3 @@ views:
         show_header_toggle: true
       - type: thermostat
         entity: climate.upstairs
-
-    cards: !include lovelace/glance-coronavirus.yaml
