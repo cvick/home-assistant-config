@@ -42,6 +42,7 @@ switch.stairs_light:
   emulated_hue: true
 
 light.couch_light:
+  icon: mdi:lightbulb-outline
   emulated_hue: true
 
 ## Weather
@@ -121,4 +122,46 @@ sensor.last_update_trigger:
   hidden: true
 
 sensor.sim_1:
+  hidden: true
+
+sensor.battery_level_2:
+  hidden: true
+
+sensor.floors_descended:
+  hidden: true
+
+sensor.sim_1_2:
+  hidden: true
+
+sensor.average_active_pace:
+  hidden: true
+
+sensor.battery_state_2:
+  hidden: true
+
+sensor.steps:
+  hidden: true
+
+sensor.ssid_2:
+  hidden: true
+
+sensor.distance:
+  hidden: true
+
+sensor.bssid_2:
+  hidden: true
+
+sensor.geocoded_location_2:
+  hidden: true
+
+sensor.activity:
+  hidden: true
+
+sensor.floors_ascended:
+  hidden: true
+
+sensor.connection_type_2:
+  hidden: true
+
+sensor.last_update_trigger_2:
   hidden: true
