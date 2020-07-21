@@ -22,7 +22,7 @@ lights:
 
 thermostats_tab:
   name: Thermostats
-  view: yes
+#  view: yes
   entities:
     - climate.downstairs
     - climate.upstairs
@@ -30,7 +30,7 @@ thermostats_tab:
 
 lights_tab:
   name: Lights
-  view: yes
+#  view: yes
   entities:
     - switch.lights
     - switch.living_room_lights
@@ -59,7 +59,7 @@ second_floor:
 
 floors:
   name: Floors
-  view: yes
+#  view: yes
   entities:
     - group.first_floor
     - group.second_floor
