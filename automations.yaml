@@ -27,3 +27,14 @@
       - fri
   action:
   - scene: scene.kitchen_lights_to_3
+
+- id: 'git_webhook'
+  alias: Git Pull
+  trigger:
+    platform: webhook
+    webhook_id: !git_webhook_id
+  action:
+    - service: hassio.addon_restart
+      data:
+        addon: core_git_pull
+  
