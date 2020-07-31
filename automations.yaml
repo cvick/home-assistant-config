@@ -32,7 +32,7 @@
   alias: Git Pull
   trigger:
     platform: webhook
-    webhook_id: !git_webhook_id
+    webhook_id: !secret git_webhook_id
   action:
     - service: hassio.addon_restart
       data:
