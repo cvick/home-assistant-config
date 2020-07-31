@@ -127,6 +127,9 @@ script: !include scripts.yaml
 # Scenes
 scene: !include scenes.yaml
 
+# Resources
+resources: !include resources.yaml
+
 # Enable Lovelace YAML mode
 lovelace:
   mode: yaml
