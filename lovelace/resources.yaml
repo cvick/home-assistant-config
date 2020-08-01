@@ -6,3 +6,6 @@
 
 - url: /hacsfiles/lovelace-card-tools/card-tools.js
   type: module
+
+- url: /hacsfiles/lovelace-gui-sandbox/gui-sandbox.js
+  type: module
