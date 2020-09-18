@@ -102,6 +102,9 @@ camera: !include cameras.yaml
 # Sensors
 sensor: !include sensors.yaml
 
+# Switches
+switch: !include  switches.yaml
+
 # Text to speech
 #tts:
 #  - platform: google_translate

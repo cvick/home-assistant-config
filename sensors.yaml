@@ -57,9 +57,17 @@
           n/a
           {% endif %}'
 
+# seedbox rtorrent
+
   - platform: rtorrent
     url: !secret rtorrent_url
     monitored_variables:
 #      - 'current_status'
       - 'download_speed'
       - 'upload_speed'
+
+# Cox Internet Usage
+
+  - platform: cox_sensor
+    username: !secret cox_username
+    password: !secret cox_password
