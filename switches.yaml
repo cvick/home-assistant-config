@@ -1,3 +1,5 @@
+# Cox Internet Usage
+
   - platform: cox_sensor
     username: !secret cox_username
     password: !secret cox_password
