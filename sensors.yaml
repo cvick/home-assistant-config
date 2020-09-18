@@ -72,25 +72,24 @@
     username: !secret cox_username
     password: !secret cox_password
 
-    sensor:
-      - platform: time_date
-        display_options:
-          - 'date'
-      - platform: template
-        sensors:
-          cox_expected_usage:
-            value_template: >
-               {% set bill_day = 18 %}
-               {% set today = states('sensor.date') | regex_replace('....-..-') | int %}
-               {% set next = as_timestamp(now()) + 86400 * ( 35 - now().strftime('%d') | float ) %}
-               {% set prior = as_timestamp(now()) - 86400 * ( now().strftime('%d') | float ) %}
-               {% set days_last_month = prior | timestamp_custom('%d') | float %}
-               {% set days_this_month = ( next - 86400 * ( next | timestamp_custom('%d') | float ) ) | timestamp_custom('%d') | float %}
-               {% if today >= bill_day %}
-               {% set total = days_this_month %}
-               {% set used = today - bill_day %}
-               {% else %}
-               {% set total = days_last_month %}
-               {% set used = today + days_last_month - bill_day %}
-               {% endif %}
-               {{ ( 100 * used / total ) | round(2) }}
+  - platform: time_date
+    display_options:
+      - 'date'
+  - platform: template
+    sensors:
+      cox_expected_usage:
+        value_template: >
+          {% set bill_day = 18 %}
+          {% set today = states('sensor.date') | regex_replace('....-..-') | int %}
+          {% set next = as_timestamp(now()) + 86400 * ( 35 - now().strftime('%d') | float ) %}
+          {% set prior = as_timestamp(now()) - 86400 * ( now().strftime('%d') | float ) %}
+          {% set days_last_month = prior | timestamp_custom('%d') | float %}
+          {% set days_this_month = ( next - 86400 * ( next | timestamp_custom('%d') | float ) ) | timestamp_custom('%d') | float %}
+          {% if today >= bill_day %}
+          {% set total = days_this_month %}
+          {% set used = today - bill_day %}
+          {% else %}
+          {% set total = days_last_month %}
+          {% set used = today + days_last_month - bill_day %}
+          {% endif %}
+          {{ ( 100 * used / total ) | round(2) }}
