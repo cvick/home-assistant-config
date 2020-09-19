@@ -105,6 +105,13 @@ sensor: !include sensors.yaml
 # Switches
 switch: !include  switches.yaml
 
+# Nextcloud
+
+nextcloud:
+  url: https://nc.chrisvick.com
+  username: cvick
+  password: !secret nextcloud
+
 # Text to speech
 #tts:
 #  - platform: google_translate
