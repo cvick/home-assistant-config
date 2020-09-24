@@ -5,4 +5,4 @@ arctic_aurora_on:
     - service: hue.hue_activate_scene
       data:
         group_name: "Chris's Room"
-        scene_name: "Arctic Aurora"
+        scene_name: "Arctic aurora"
