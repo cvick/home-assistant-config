@@ -1,0 +1,8 @@
+# Hue Scripts
+
+arctic_aurora_on:
+  sequence:
+    - service: hue.hue_activate_scene
+      date:
+        group_name: "Chris's Room"
+        scene_name: "Arctic Aurora"
