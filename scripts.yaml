@@ -6,3 +6,31 @@ arctic_aurora_on:
       data:
         group_name: "Chris's Room"
         scene_name: "Arctic aurora"
+        
+packers_on:
+  sequence:
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Chris's Room"
+        scene_name: "Packers"
+        
+nightlight_on:
+  sequence:
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Chris's Room"
+        scene_name: "Nightlight"
+        
+vaporwave_on:
+  sequence:
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Chris's Room"
+        scene_name: "Vaporwave"
+        
+code_red_on:
+  sequence:
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Chris's Room"
+        scene_name: "CODE RED"
