@@ -67,29 +67,94 @@
       - 'upload_speed'
 
 # Cox Internet Usage
+#
+#  - platform: cox_sensor
+#    username: !secret cox_username
+#    password: !secret cox_password
+#
+#  - platform: time_date
+#    display_options:
+#      - 'date'
+#  - platform: template
+#    sensors:
+#      cox_expected_usage:
+#        value_template: >
+#          {% set bill_day = 18 %}
+#          {% set today = states('sensor.date') | regex_replace('....-..-') | int %}
+#          {% set next = as_timestamp(now()) + 86400 * ( 35 - now().strftime('%d') | float ) %}
+#          {% set prior = as_timestamp(now()) - 86400 * ( now().strftime('%d') | float ) %}
+#          {% set days_last_month = prior | timestamp_custom('%d') | float %}
+#          {% set days_this_month = ( next - 86400 * ( next | timestamp_custom('%d') | float ) ) | timestamp_custom('%d') | float %}
+#          {% if today >= bill_day %}
+#          {% set total = days_this_month %}
+#          {% set used = today - bill_day %}
+#          {% else %}
+#          {% set total = days_last_month %}
+#          {% set used = today + days_last_month - bill_day %}
+#          {% endif %}
+#          {{ ( 100 * used / total ) | round(2) }}
 
-  - platform: cox_sensor
-    username: !secret cox_username
-    password: !secret cox_password
+# Cox Internet Usage v2
 
-  - platform: time_date
-    display_options:
-      - 'date'
-  - platform: template
-    sensors:
-      cox_expected_usage:
-        value_template: >
-          {% set bill_day = 18 %}
-          {% set today = states('sensor.date') | regex_replace('....-..-') | int %}
-          {% set next = as_timestamp(now()) + 86400 * ( 35 - now().strftime('%d') | float ) %}
-          {% set prior = as_timestamp(now()) - 86400 * ( now().strftime('%d') | float ) %}
-          {% set days_last_month = prior | timestamp_custom('%d') | float %}
-          {% set days_this_month = ( next - 86400 * ( next | timestamp_custom('%d') | float ) ) | timestamp_custom('%d') | float %}
-          {% if today >= bill_day %}
-          {% set total = days_this_month %}
-          {% set used = today - bill_day %}
-          {% else %}
-          {% set total = days_last_month %}
-          {% set used = today + days_last_month - bill_day %}
-          {% endif %}
-          {{ ( 100 * used / total ) | round(2) }}
+  - platform: command_line
+    command: cal $(date +"%m %Y") | awk 'NF {DAYS = $NF}; END {print DAYS}'
+    name: Days In Current Month
+    scan_interval: 3600
+
+  - platform: file
+    name: Cox Utilization
+    file_path: /mnt/data/docker/volumes/coxusage/coxusage.json
+    value_template: >
+      {% if value_json is defined %}
+        {% if value_json.dumUsage | int == 0 and value_json.dumLimit | int == 0 and value_json.dumUtilization | int == 0 %}
+          stats unavailable
+        {% else %}
+          {{ value_json.dumUsage | int }} / {{ value_json.dumLimit | int }} GB ({{ value_json.dumUtilization | int }} %)
+        {% endif %}
+      {% else %}
+        undefined
+      {% endif %}
+
+  - platform: file
+    name: Cox Time Left
+    file_path: /mnt/data/docker/volumes/coxusage/coxusage.json
+    value_template: >
+      {% if value_json is defined %}
+        {% if value_json.dumDaysLeft is defined %}
+          {{ value_json.dumDaysLeft | int }} Days
+        {% else %}
+          unknown
+        {% endif %}
+      {% else %}
+        undefined
+      {% endif %}
+
+  - platform: file
+    name: Cox Avg GB Current
+    file_path: /mnt/data/docker/volumes/coxusage/coxusage.json
+    value_template: >
+      {% if value_json is defined %}
+        {% if value_json.dumUsage | int == 0 and value_json.dumDaysLeft | int == 0 %}
+          stats unavailable
+        {% elif states.sensor.days_in_current_month.state is defined %}
+          {{ (float(value_json.dumUsage) / (float(states.sensor.days_in_current_month.state) - float(value_json.dumDaysLeft))) | round(1) }} GB per day
+        {% else %}
+          month_undefined
+        {% endif %}
+      {% else %}
+        undefined
+      {% endif %}
+
+  - platform: file
+    name: Cox Avg GB Remaining
+    file_path: /mnt/data/docker/volumes/coxusage/coxusage.json
+    value_template: >
+      {% if value_json is defined %}
+        {% if value_json.dumLimit | int == 0 and value_json.dumUsage | int == 0 and value_json.dumDaysLeft | int == 0 %}
+          stats unavailable
+        {% else %}
+          {{ ((float(value_json.dumLimit) - float(value_json.dumUsage)) / float(value_json.dumDaysLeft)) | round(1) }} GB per day
+        {% endif %}
+      {% else %}
+        undefined
+      {% endif %}
