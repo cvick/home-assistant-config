@@ -141,6 +141,10 @@ scene: !include scenes.yaml
 lovelace:
   mode: yaml
 
+# Whitelist external dirs
+whitelist_external_dirs:
+  - /mnt/data/docker/volumes/coxusage/
+
 # Custom Devices
 
 ## Wemo Plugs
