@@ -21,7 +21,7 @@ homeassistant:
 
   # Whitelist external dirs
   whitelist_external_dirs:
-    - /mnt/data/docker/volumes/coxusage
+    - /mnt/data/docker/volumes/coxusage/
 
 influxdb:
   host: 10.0.0.80
