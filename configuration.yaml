@@ -19,6 +19,10 @@ homeassistant:
   customize: !include customize.yaml
   customize_glob: !include customize_glob.yaml
 
+  # Whitelist external dirs
+  whitelist_external_dirs:
+    - /mnt/data/docker/volumes/coxusage/
+
 influxdb:
   host: 10.0.0.80
 
@@ -140,10 +144,6 @@ scene: !include scenes.yaml
 # Enable Lovelace YAML mode
 lovelace:
   mode: yaml
-
-# Whitelist external dirs
-  whitelist_external_dirs:
-    - /mnt/data/docker/volumes/coxusage/
 
 # Custom Devices
 
