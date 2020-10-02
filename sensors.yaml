@@ -75,7 +75,7 @@
 
   - platform: file
     name: Cox Utilization
-    file_path: /coxdata/coxusage.json
+    file_path: http://10.0.0.85/cox/coxusage.json
     value_template: >
       {% if value_json is defined %}
         {% if value_json.dumUsage | int == 0 and value_json.dumLimit | int == 0 and value_json.dumUtilization | int == 0 %}
@@ -89,7 +89,7 @@
 
   - platform: file
     name: Cox Time Left
-    file_path: /coxdata/coxusage.json
+    file_path: http://10.0.0.85/cox/coxusage.json
     value_template: >
       {% if value_json is defined %}
         {% if value_json.dumDaysLeft is defined %}
@@ -103,7 +103,7 @@
 
   - platform: file
     name: Cox Avg GB Current
-    file_path: /coxdata/coxusage.json
+    file_path: http://10.0.0.85/cox/coxusage.json
     value_template: >
       {% if value_json is defined %}
         {% if value_json.dumUsage | int == 0 and value_json.dumDaysLeft | int == 0 %}
@@ -119,7 +119,7 @@
 
   - platform: file
     name: Cox Avg GB Remaining
-    file_path: /coxdata/coxusage.json
+    file_path: http://10.0.0.85/cox/coxusage.json
     value_template: >
       {% if value_json is defined %}
         {% if value_json.dumLimit | int == 0 and value_json.dumUsage | int == 0 and value_json.dumDaysLeft | int == 0 %}
