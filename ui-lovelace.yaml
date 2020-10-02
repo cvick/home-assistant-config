@@ -108,6 +108,19 @@ views:
           - zwave.aeotec_zw090_zstick_gen5_us
         title: Z-Wave
 
+      - type: entities
+        entities:
+          - entity: sensor.cox_utilization
+            icon: mdi:percent
+          - entity: sensor.cox_time_left
+            icon: mdi:calendar-clock
+          - entity: sensor.cox_avg_gb_current
+            icon: mdi:chart-line
+          - entity: sensor.cox_avg_gb_remaining
+            icon: mdi:chart-line-stacked
+        show_header_toggle: false
+        title: Cox Internet Usage
+
   - path: thermostats_tab
     title: Thermostats
     badges: []
