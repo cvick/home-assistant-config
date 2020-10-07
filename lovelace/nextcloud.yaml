@@ -1,0 +1,10 @@
+# Nextcloud
+
+- type: entities
+  entities:
+    - entity: sensor.nextcloud_storage_num_files
+      icon: mdi:file-multiple
+    - entity: sensor.nextcloud_system_cpuload
+      icon: mdi:computer-classic
+  show_header_toggle: false
+  title: Nextcloud
