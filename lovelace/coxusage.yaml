@@ -5,7 +5,7 @@
   icon: mdi:earth
   path: coxusage
   cards:
-    - type: vertical-stack
+    - type: glance
       title: Cox Usage
       show_icon: true
       show_name: true

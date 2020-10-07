@@ -5,7 +5,7 @@
   icon: mdi:cloud
   path: nextcloud
   cards:
-    - type: vertical-stack
+    - type: glance
       title: Nextcloud
       show_icon: true
       show_name: true
