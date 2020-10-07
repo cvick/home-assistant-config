@@ -171,3 +171,5 @@ views:
   - !include lovelace/glance-coronavirus.yaml
 
   - !include lovelace/nextcloud.yaml
+  
+  - !include lovelace/coxusage.yaml
