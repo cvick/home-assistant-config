@@ -3,7 +3,7 @@
   icon: mdi:biohazard
   path: coronavirus
   cards:
-    - type: glance
+    - type: vertical-stack
       title: Worldwide
       show_icon: true
       show_name: true
@@ -22,7 +22,7 @@
           icon: 'mdi:emoticon-dead-outline'
           name: Deaths
 
-    - type: glance
+    - type: vertical-stack
       title: United States
       show_icon: true
       show_name: true
