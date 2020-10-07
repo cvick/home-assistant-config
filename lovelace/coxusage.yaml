@@ -19,5 +19,5 @@
           icon: mdi:chart-line
         - entity: sensor.cox_avg_gb_remaining
           icon: mdi:chart-line-stacked
-     show_header_toggle: false
-     title: Cox Internet Usage
+      show_header_toggle: false
+      title: Cox Internet Usage
