@@ -1,14 +1,23 @@
 # Cox Usage
 
-- type: entities
-  entities:
-    - entity: sensor.cox_utilization
-      icon: mdi:percent
-    - entity: sensor.cox_time_left
-      icon: mdi:calendar-clock
-    - entity: sensor.cox_avg_gb_current
-      icon: mdi:chart-line
-    - entity: sensor.cox_avg_gb_remaining
-      icon: mdi:chart-line-stacked
-  show_header_toggle: false
-  title: Cox Internet Usage
+  title: Cox Usage
+  id: coxusage
+  icon: mdi:earth
+  path: coxusage
+  cards:
+    - type: glance
+      title: Cox Usage
+      show_icon: true
+      show_name: true
+      show_state: true
+      entities:
+        - entity: sensor.cox_utilization
+          icon: mdi:percent
+        - entity: sensor.cox_time_left
+          icon: mdi:calendar-clock
+        - entity: sensor.cox_avg_gb_current
+          icon: mdi:chart-line
+        - entity: sensor.cox_avg_gb_remaining
+          icon: mdi:chart-line-stacked
+     show_header_toggle: false
+     title: Cox Internet Usage
