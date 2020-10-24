@@ -80,15 +80,15 @@ views:
       #    - light.couch_light
       #  title: First Floor
       #  show_header_toggle: true
-      - type: thermostat
-        entity: climate.downstairs
+      #- type: thermostat
+      #  entity: climate.downstairs
       #- type: entities
       #  entities:
       #    - switch.lights
       #  title: Second Floor
       #  show_header_toggle: true
-      - type: thermostat
-        entity: climate.upstairs
+      #- type: thermostat
+      #  entity: climate.upstairs
       - type: entities
         entities:
           - cover.garage
@@ -110,10 +110,10 @@ views:
           - scene.close_the_garage_door
           - scene.open_the_garage_door
         title: Scene
-      - type: entities
-        entities:
-          - zwave.aeotec_zw090_zstick_gen5_us
-        title: Z-Wave
+      #- type: entities
+      #  entities:
+      #    - zwave.aeotec_zw090_zstick_gen5_us
+      #  title: Z-Wave
 
       #- type: entities
       #  entities:
@@ -136,9 +136,11 @@ views:
         entity: climate.downstairs
       - type: thermostat
         entity: climate.upstairs
-  - path: lights_tab
-    title: Lights
-    badges: []
+      - type: picture-entity
+        entity: camera.grafana_temp
+  #- path: lights_tab
+  #  title: Lights
+  #  badges: []
     #cards:
     #  - type: entities
     #    entities:
