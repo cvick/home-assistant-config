@@ -33,53 +33,60 @@ views:
         entities:
           - switch.stairs_light
           - switch.living_room_lights
+          - light.couch_light
           - light.kitchen_lights
           - switch.porch_light
         title: Downstairs
         show_header_toggle: true
       - type: entities
         entities:
-          - entity: light.kitchen_lights
-            name: Lights
-        title: Kitchen
-        show_header_toggle: true
-      - type: entities
-        entities:
-          - switch.living_room_lights
-          - light.couch_light
-        title: Living Room
-        show_header_toggle: true
-      - type: entities
-        entities:
-          - switch.porch_light
-        title: Outside
-        show_header_toggle: true
-      - type: entities
-        entities:
           - switch.lights
-          - switch.living_room_lights
-          - light.kitchen_lights
-          - switch.porch_light
           - switch.stairs_light
-          - light.couch_light
-        title: Lights
+        title: Upstairs
         show_header_toggle: true
-      - type: entities
-        entities:
-          - switch.living_room_lights
-          - light.kitchen_lights
-          - switch.porch_light
-          - switch.stairs_light
-          - light.couch_light
-        title: First Floor
-        show_header_toggle: true
+      #- type: entities
+      #  entities:
+      #    - entity: light.kitchen_lights
+      #      name: Lights
+      #  title: Kitchen
+      #  show_header_toggle: true
+      #- type: entities
+      #  entities:
+      #    - switch.living_room_lights
+      #    - light.couch_light
+      #  title: Living Room
+      #  show_header_toggle: true
+      #- type: entities
+      #  entities:
+      #    - switch.porch_light
+      #  title: Outside
+      #  show_header_toggle: true
+      #- type: entities
+      #  entities:
+      #    - switch.lights
+      #    - switch.living_room_lights
+      #    - light.kitchen_lights
+      #    - switch.porch_light
+      #    - switch.stairs_light
+      #    - light.couch_light
+      #  title: Lights
+      #  show_header_toggle: true
+      #- type: entities
+      #  entities:
+      #    - switch.living_room_lights
+      #    - light.kitchen_lights
+      #    - switch.porch_light
+      #    - switch.stairs_light
+      #    - light.couch_light
+      #  title: First Floor
+      #  show_header_toggle: true
       - type: thermostat
         entity: climate.downstairs
-      - type: entities
-        entities:
-          - switch.lights
-        title: Second Floor
-        show_header_toggle: true
+      #- type: entities
+      #  entities:
+      #    - switch.lights
+      #  title: Second Floor
+      #  show_header_toggle: true
       - type: thermostat
         entity: climate.upstairs
       - type: entities
@@ -92,11 +99,11 @@ views:
         show_header_toggle: true
       - type: picture-entity
         entity: camera.grafana_temp
-      - type: entities
-        entities:
-          - light.bedroom
-          - light.chris_s_room
-        title: Light
+      #- type: entities
+      #  entities:
+      #    - light.bedroom
+      #    - light.chris_s_room
+      #  title: Light
       - type: entities
         entities:
           - scene.kitchen_lights_to_3
@@ -108,18 +115,18 @@ views:
           - zwave.aeotec_zw090_zstick_gen5_us
         title: Z-Wave
 
-      - type: entities
-        entities:
-          - entity: sensor.cox_utilization
-            icon: mdi:percent
-          - entity: sensor.cox_time_left
-            icon: mdi:calendar-clock
-          - entity: sensor.cox_avg_gb_current
-            icon: mdi:chart-line
-          - entity: sensor.cox_avg_gb_remaining
-            icon: mdi:chart-line-stacked
-        show_header_toggle: false
-        title: Cox Internet Usage
+      #- type: entities
+      #  entities:
+      #    - entity: sensor.cox_utilization
+      #      icon: mdi:percent
+      #    - entity: sensor.cox_time_left
+      #      icon: mdi:calendar-clock
+      #    - entity: sensor.cox_avg_gb_current
+      #      icon: mdi:chart-line
+      #    - entity: sensor.cox_avg_gb_remaining
+      #      icon: mdi:chart-line-stacked
+      #  show_header_toggle: false
+      #  title: Cox Internet Usage
 
   - path: thermostats_tab
     title: Thermostats
@@ -132,19 +139,19 @@ views:
   - path: lights_tab
     title: Lights
     badges: []
-    cards:
-      - type: entities
-        entities:
-          - light.kitchen_lights
-          - light.couch_light
-        title: Light
-      - type: entities
-        entities:
-          - switch.lights
-          - switch.living_room_lights
-          - switch.porch_light
-          - switch.stairs_light
-        title: Switch
+    #cards:
+    #  - type: entities
+    #    entities:
+    #      - light.kitchen_lights
+    #      - light.couch_light
+    #    title: Light
+    #  - type: entities
+    #    entities:
+    #      - switch.lights
+    #      - switch.living_room_lights
+    #      - switch.porch_light
+    #      - switch.stairs_light
+    #    title: Switch
   - path: floors
     title: Floors
     badges: []
@@ -156,14 +163,16 @@ views:
           - switch.porch_light
           - switch.stairs_light
           - light.couch_light
-        title: First Floor
+          - climate.downstairs
+        title: Downstairs
         show_header_toggle: true
       - type: thermostat
         entity: climate.downstairs
       - type: entities
         entities:
           - switch.lights
-        title: Second Floor
+          - climate.upstairs
+        title: Upstairs
         show_header_toggle: true
       - type: thermostat
         entity: climate.upstairs
@@ -171,5 +180,5 @@ views:
   - !include lovelace/glance-coronavirus.yaml
 
   - !include lovelace/nextcloud.yaml
-  
+
   - !include lovelace/coxusage.yaml
