@@ -134,10 +134,10 @@ views:
     cards:
       - type: thermostat
         entity: climate.downstairs
-      - type: thermostat
-        entity: climate.upstairs
       - type: picture-entity
         entity: camera.grafana_temp
+      - type: thermostat
+        entity: climate.upstairs
   #- path: lights_tab
   #  title: Lights
   #  badges: []
@@ -168,16 +168,16 @@ views:
           - climate.downstairs
         title: Downstairs
         show_header_toggle: true
-      - type: thermostat
-        entity: climate.downstairs
+      #- type: thermostat
+      #  entity: climate.downstairs
       - type: entities
         entities:
           - switch.lights
           - climate.upstairs
         title: Upstairs
         show_header_toggle: true
-      - type: thermostat
-        entity: climate.upstairs
+      #- type: thermostat
+      #  entity: climate.upstairs
 
   - !include lovelace/glance-coronavirus.yaml
 
