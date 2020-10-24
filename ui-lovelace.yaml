@@ -134,10 +134,10 @@ views:
     cards:
       - type: thermostat
         entity: climate.downstairs
-      - type: picture-entity
-        entity: camera.grafana_temp
       - type: thermostat
         entity: climate.upstairs
+      - type: picture-entity
+        entity: camera.grafana_temp
   #- path: lights_tab
   #  title: Lights
   #  badges: []
