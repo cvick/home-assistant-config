@@ -1,3 +1,5 @@
+# Add new entities here to make then available in HomeKit
+
 auto_start: false
 
 filter:
