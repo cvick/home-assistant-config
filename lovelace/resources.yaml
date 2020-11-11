@@ -15,3 +15,6 @@
 
 - url: /hacsfiles/lovelace-slider-entity-row/slider-entity-row.js
   type: module
+
+- url: /hacsfiles/weather-card/weather-card.js
+  type: module
