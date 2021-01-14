@@ -184,3 +184,5 @@ views:
   - !include lovelace/nextcloud.yaml
 
   - !include lovelace/coxusage.yaml
+
+  - !include lovelace/printer-xp820.yaml
