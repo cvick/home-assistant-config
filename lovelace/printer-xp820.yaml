@@ -1,0 +1,21 @@
+# XP-820 Printer
+
+  title: Epson XP-830
+  id: epson_xp820
+  icon: mdi:printer
+  path: epson_xp820
+  cards:
+    - type: entities
+      title: Epson XP-820
+      show_icon: true
+      show_name: true
+      show_state: true
+      entities:
+        - sensor.epson_xp_820_series
+        - sensor.epson_xp_820_series_black_ink
+        - sensor.epson_xp_820_series_cyan_ink
+        - sensor.epson_xp_820_series_magenta_ink
+        - sensor.epson_xp_820_series_photo_black_ink
+        - sensor.epson_xp_820_series_yellow_ink
+        - sensor.epson_xp_820_series_uptime
+      show_header_toggle: false
