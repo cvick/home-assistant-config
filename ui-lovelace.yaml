@@ -186,3 +186,5 @@ views:
   - !include lovelace/coxusage.yaml
 
   - !include lovelace/printer-xp820.yaml
+
+  - !include lovelace/pi-hole.yaml
