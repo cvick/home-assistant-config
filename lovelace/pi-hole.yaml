@@ -1,0 +1,27 @@
+# Pi-hole
+
+title: Pi-hole
+id: pi-hole
+icon: mdi:block-helper
+path: pi-hole
+cards:
+  - type: glance
+    title: Pi-hole
+    # show_icon: true
+    show_name: true
+    show_state: true
+    entities:
+      - entity: sensor.pi_hole_ads_blocked_today
+        icon: mdi:close-octagon-outline
+      - entity: sensor.pi_hole_ads_percentage_blocked_today
+        icon: mdi:close-octagon-outline
+      - entity: sensor.pi_hole_dns_queries_today
+        icon: mdi:comment-question-outline
+      - entity: sensor.pi_hole_dns_queries_cached
+        icon: mdi:comment-question-outline
+      - entity: sensor.pi_hole_dns_queries_forwarded
+        icon: mdi:comment-question-outline
+      - entity: sensor.pi_hole_domains_blocked
+        icon: mdi:block-helper
+      - entity: sensor.pi_hole_dns_unique_domains
+        icon: mdi:domain
