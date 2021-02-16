@@ -2,7 +2,6 @@
 
   title: Cox Usage
   panel: true
-  id: coxusage
   icon: mdi:earth
   path: coxusage
   cards:
