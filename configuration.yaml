@@ -23,6 +23,7 @@ influxdb:
   api_version: 2
   host: 10.0.0.80
   port: 8086
+  ssl: false
   organization: 7acaa79f9e1a5dee
   token: !secret influxtoken
   bucket: home-assistant
