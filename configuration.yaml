@@ -20,7 +20,11 @@ homeassistant:
   customize_glob: !include customize_glob.yaml
 
 influxdb:
+  api_version: 2
   host: 10.0.0.80
+  organization: 7acaa79f9e1a5dee
+  token: !secret influxtoken
+  bucket: homeassistant
 
 # Enables the frontend
 frontend:
