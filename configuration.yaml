@@ -24,7 +24,7 @@ influxdb:
   host: 10.0.0.80
   organization: 7acaa79f9e1a5dee
   token: !secret influxtoken
-  bucket: homeassistant
+  bucket: home-assistant
 
 # Enables the frontend
 frontend:
