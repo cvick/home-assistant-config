@@ -41,7 +41,6 @@ config:
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 http:
 #   base_url: example.duckdns.org:8123
-  base_url: https://ha.chrisvick.com
   use_x_forwarded_for: true
   trusted_proxies: 10.0.0.85
   login_attempts_threshold: 3
