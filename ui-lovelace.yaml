@@ -127,14 +127,12 @@ views:
       #      icon: mdi:chart-line-stacked
       #  show_header_toggle: false
       #  title: Cox Internet Usage
-      
-      # Denon Receiver
-      - type: media-control
-        entity: media_player.living_room
 
-      # Denon HEOS
-      - type: media-control
-        entity: media_player.living_room_2
+      # Denon Receiver & HEOS
+      - type: entities
+        entities:
+          - media_player.living_room
+          - media_player.living_room_2
 
   - path: thermostats_tab
     title: Thermostats
