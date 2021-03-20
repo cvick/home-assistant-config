@@ -127,6 +127,9 @@ views:
       #      icon: mdi:chart-line-stacked
       #  show_header_toggle: false
       #  title: Cox Internet Usage
+      - type: media-control
+        entity: media_player.living_room
+
 
   - path: thermostats_tab
     title: Thermostats
