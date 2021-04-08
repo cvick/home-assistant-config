@@ -19,6 +19,7 @@ homeassistant:
   customize: !include customize.yaml
   customize_glob: !include customize_glob.yaml
 
+  # Save data to Influxfor use in graphs
 influxdb:
   api_version: 2
   host: 10.0.0.80
@@ -27,6 +28,10 @@ influxdb:
   organization: baa8bcc736bfe0a0
   token: !secret influxtoken
   bucket: home-assistant
+
+  # Use Postgres for logging
+  recorder:
+    db_url: postgresql://!secret pguser:!secret pgpassword@10.0.0.80:5432/home-assistant
 
 # Enables the frontend
 frontend:
