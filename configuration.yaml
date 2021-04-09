@@ -29,9 +29,9 @@ influxdb:
   token: !secret influxtoken
   bucket: home-assistant
 
-  # Use Postgres for logging
-  recorder:
-    db_url: postgresql://!secret pguser:!secret pgpassword@10.0.0.80:5432/home-assistant
+# Use Postgres for logging
+recorder:
+  db_url: postgresql://!secret pguser:!secret pgpassword@10.0.0.80:5432/home-assistant
 
 # Enables the frontend
 frontend:
