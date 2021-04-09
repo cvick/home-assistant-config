@@ -30,8 +30,7 @@ influxdb:
   bucket: home-assistant
 
 # Use Postgres for logging
-recorder:
-  db_url: postgresql://!secret pguser:!secret pgpassword@10.0.0.80:5432/home-assistant
+recorder: !include recorder-postgres.yaml
 
 # Enables the frontend
 frontend:
