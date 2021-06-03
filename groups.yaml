@@ -74,6 +74,7 @@ garage:
 # Family Presence Detection for automations
 family_presence_detection:
   name: Family Presence Detection
+  all: true
   entities:
     - device_tracker.michaeliphonexr
     - device_tracker.kathys_iphone
