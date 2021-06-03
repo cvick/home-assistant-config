@@ -70,3 +70,12 @@ garage:
     - cover.garage
     - sensor.garage_status
     - sensor.garage_car_present
+
+# Family Presence Detection for automations
+family_presence_detection:
+  name: Family Presence Detection
+  entities:
+    - device_tracker.michaeliphonexr
+    - device_tracker.kathys_iphone
+    - device_tracker.andrews_iphone_2
+    - device_tracker.chris_s_iphone_2
