@@ -1,4 +1,4 @@
-- id: '25263d9c6764471886a958ff3683af7d'
+- id: 25263d9c6764471886a958ff3683af7d
   alias: Start HomeKit
   trigger:
   - event: start
@@ -7,12 +7,11 @@
   action:
   - delay: 00:05
   - service: homekit.start
-
 - id: '1574386270638'
   alias: Kitchen lights at dusk
   trigger:
   - event: sunset
-    offset: '-00:30:00'
+    offset: -00:60:00
     platform: sun
   condition:
   - condition: state
@@ -20,20 +19,20 @@
     state: 'off'
   - condition: time
     weekday:
-      - mon
-      - tue
-      - wed
-      - thu
-      - fri
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
   action:
   - scene: scene.kitchen_lights_to_3
-
-- id: 'git_webhook'
+  mode: single
+- id: git_webhook
   alias: Git Pull
   trigger:
     platform: webhook
-    webhook_id: !secret git_webhook_id
+    webhook_id: git_pull_2586245632
   action:
-    - service: hassio.addon_restart
-      data:
-        addon: core_git_pull
+  - service: hassio.addon_restart
+    data:
+      addon: core_git_pull
