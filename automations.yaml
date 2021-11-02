@@ -36,3 +36,6 @@
   - service: hassio.addon_restart
     data:
       addon: core_git_pull
+
+# Notifications
+

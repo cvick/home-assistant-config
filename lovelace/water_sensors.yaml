@@ -1,0 +1,16 @@
+# Water Leak Sensors
+
+  title: Water Leak Sensors
+  id: water-leak-sensors
+  icon: mdi:waterAlert
+  path: water-leak-sensors
+  cards:
+    - type: glance
+      title: Water Leak Sensors
+      show_icon: true
+      show_name: true
+      show_state: true
+      entities:
+        - entity: binary_sensor.half_bath_water_leak_sensor_water_alarm_water_leak_detected
+        - entity: binary_sensor.garage_water_heater_water_leak_sensor_water_alarm_water_leak_detected
+        - entity: binary_sensor.washing_machine_water_leak_sensor_water_alarm_water_leak_detected
