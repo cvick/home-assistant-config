@@ -196,4 +196,4 @@ views:
 
   - !include lovelace/pi-hole.yaml
   
-  - !include lovelace/water_sensors.yaml
+  - !include lovelace/water-leak-sensors.yaml
