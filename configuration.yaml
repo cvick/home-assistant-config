@@ -172,4 +172,4 @@ climate 1:
     password: !secret honeywell_pass
     scan_interval: 600
 
-cover: !include covers.yaml
+# cover: !include covers.yaml
