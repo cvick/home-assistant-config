@@ -186,7 +186,7 @@ views:
       #- type: thermostat
       #  entity: climate.upstairs
 
-  - !include lovelace/glance-coronavirus.yaml
+#  - !include lovelace/glance-coronavirus.yaml
 
   - !include lovelace/nextcloud.yaml
 
