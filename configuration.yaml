@@ -30,7 +30,7 @@ influxdb:
   bucket: home-assistant
 
 opnsense:
-  url: https://10.0.0.1/api
+  url: https://10.0.0.1:7443/api
   api_secret: !secret opnsenseapisecret
   api_key: !secret opnsenseapikey
 
@@ -51,7 +51,10 @@ config:
 http:
 #   base_url: example.duckdns.org:8123
   use_x_forwarded_for: true
-  trusted_proxies: 10.0.0.85
+  trusted_proxies:
+    - 10.0.0.85
+    - 10.253.0.50
+    - 10.0.0.80
   login_attempts_threshold: 3
   ip_ban_enabled: false
 
