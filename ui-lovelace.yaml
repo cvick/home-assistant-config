@@ -195,5 +195,5 @@ views:
   - !include lovelace/printer-xp820.yaml
 
   - !include lovelace/pi-hole.yaml
-  
+
   - !include lovelace/water-leak-sensors.yaml
