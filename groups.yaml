@@ -64,12 +64,12 @@ floors:
     - group.first_floor
     - group.second_floor
 
-garage:
-  name: Garage
-  entities:
-    - cover.garage
-    - sensor.garage_status
-    - sensor.garage_car_present
+#garage:
+#  name: Garage
+#  entities:
+#    - cover.garage
+#    - sensor.garage_status
+#    - sensor.garage_car_present
 
 # Family Presence Detection for automations
 family_presence_detection:
