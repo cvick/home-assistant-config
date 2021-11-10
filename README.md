@@ -12,6 +12,7 @@ Devices:
 * 4 x [Zooz 700 Series Z-Wave Plus XS Water Leak Sensor](https://www.thesmartesthouse.com/products/zooz-z-wave-plus-700-series-xs-water-leak-sensor-zse42)
 * 2 x [Honeywell 9000 Thermostats](https://www.honeywellhome.com/en/products/thermostat/wi-fi-9000-7-day-programmable-thermostat)
 * [OpenGarage Garage Door Controller ](https://opengarage.io/)
+* 2 x [Belkin Wemo Smart Plug](https://www.belkin.com/us/support-product?pid=01t80000002xFCbAAM)
 
 Add-ons I have installed:
 
