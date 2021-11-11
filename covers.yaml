@@ -1,6 +1,6 @@
-platform: opengarage
-covers:
-    garage:
-      host:  10.0.0.100
-      device_key: !secret opengarage
-      name:  Garage
+#platform: opengarage
+#covers:
+#    garage:
+#      host:  10.0.0.100
+#      device_key: !secret opengarage
+#      name:  Garage
