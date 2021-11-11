@@ -36,6 +36,37 @@
   - service: hassio.addon_restart
     data:
       addon: core_git_pull
-
-# Notifications
-
+- id: '1636608309790'
+  alias: Porch light -  off when all home + 15min
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: group.family_presence_detection
+    for:
+      hours: 0
+      minutes: 15
+      seconds: 0
+      milliseconds: 0
+    from: away
+    to: home
+  condition: []
+  action:
+  - type: turn_off
+    device_id: e3be87619ce7a753fc139b121a390da2
+    entity_id: switch.porch_light
+    domain: switch
+  mode: restart
+- id: '1636608414451'
+  alias: Porch Light - On at dusk -30m
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: -00:30
+  condition: []
+  action:
+  - type: turn_on
+    device_id: e3be87619ce7a753fc139b121a390da2
+    entity_id: switch.porch_light
+    domain: switch
+  mode: restart
