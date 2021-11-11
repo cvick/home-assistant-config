@@ -57,6 +57,21 @@
 #          n/a
 #          {% endif %}'
 
+#  new OpenGarage integration template
+  - platform: template
+    sensors:
+      binary_sensor.opengarage_vehicle:
+        value_template: >-
+              {% if states.sensor.opengarage_dist.state | int == 0 %}
+              Disabled
+              {% elif (states.sensor.opengarage_dist.state | int > 0) and (states.sensor.opengarage_dist.state | int <= 55) %}
+              Unknown (Door Open)
+              {% elif (states.sensor.opengarage_dist.state | int > 55) and (states.sensor.opengarage_dist.state | int <= 170) %}
+              Present
+              {% else %}
+              Absent
+              {% endif %}
+
 # seedbox rtorrent
 
   - platform: rtorrent
