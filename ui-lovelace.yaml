@@ -89,14 +89,19 @@ views:
       #  show_header_toggle: true
       #- type: thermostat
       #  entity: climate.upstairs
-      #- type: entities
-      #  entities:
-      #    - cover.garage
-      #    - entity: sensor.garage_status
-      #      name: Door Status
-      #    - sensor.garage_car_present
-      #  title: Garage
-      #  show_header_toggle: true
+      - type: entities
+        entities:
+          - cover.opengarage
+          - entity: sensor.garage_status
+            name: Door Status
+          - entity: binary_sensor.opengarage_vehicle
+          - entity: sensor.opengarage_dist
+          - entity: sensor.opengarage_temp
+          - entity: sensor.opengarage.humid
+          - entity: sensor.opengarage.rssi
+        title: Garage
+        show_header_toggle: true
+
       - type: picture-entity
         entity: camera.grafana_temp
       #- type: entities
