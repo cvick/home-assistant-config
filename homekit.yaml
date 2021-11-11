@@ -11,5 +11,5 @@ filter:
       - switch.stairs_light
       - climate.downstairs
       - climate.upstairs
-      - cover.garage
+      - cover.opengarage
       - light.couch_light
