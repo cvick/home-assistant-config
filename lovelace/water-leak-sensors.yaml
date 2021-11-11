@@ -1,7 +1,6 @@
 # Water Leak Sensors
 
   title: Water Leak Sensors
-  id: water-leak-sensors
   icon: mdi:waterAlert
   path: water-leak-sensors
   cards:
