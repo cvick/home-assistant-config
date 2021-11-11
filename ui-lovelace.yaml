@@ -89,16 +89,26 @@ views:
       #  show_header_toggle: true
       #- type: thermostat
       #  entity: climate.upstairs
+
       - type: entities
         entities:
           - cover.opengarage
           - entity: binary_sensor.opengarage_vehicle
+            name: Car Status
+            icon: hass:car
           - entity: sensor.opengarage_dist
+            name: Distance
+            icon: mdi:arrow-down-thick
           - entity: sensor.opengarage_temp
+            name: Temperature
+            icon: mdi:thermometer
           - entity: sensor.opengarage_humid
+            name: Humidity
+            icon: mdi:water-percent
           - entity: sensor.opengarage_rssi
+            name: WiFi Signal Strength
         title: Garage
-        show_header_toggle: true
+        show_header_toggle: false
 
       - type: picture-entity
         entity: camera.grafana_temp
