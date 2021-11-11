@@ -15,13 +15,11 @@
       indoor_temperature_downstairs:
         friendly_name: "Downstairs Temperature"
         unit_of_measurement: "°F"
-        entity_id: climate.downstairs
         value_template: "{{ state_attr('climate.downstairs', 'current_temperature')}}"
 
       indoor_temperature_upstairs:
         friendly_name: "Upstairs Temperature"
         unit_of_measurement: "°F"
-        entity_id: climate.upstairs
         value_template: "{{ state_attr('climate.upstairs', 'current_temperature')}}"
 
 #  - platform: template
