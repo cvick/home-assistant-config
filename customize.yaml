@@ -62,11 +62,11 @@ sensor.dark_sky_summary:
 
 ## Covers
 
-sensor.garage_car_present:
-    icon: mdi:car
-
-cover.garage:
-    homebridge_cover_type: garage_door
+#sensor.garage_car_present:
+#    icon: mdi:car
+#
+#cover.garage:
+#    homebridge_cover_type: garage_door
 
 ## Hide Things
 
