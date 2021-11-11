@@ -1,31 +1,32 @@
-- id: ac7857ca243d456086551b5eec89f9f3
-  name: Open the Garage Door
-  entities:
-    cover.garage:
-      wifi_signal: -75
-      distance_sensor: 245
-      door_state: closed
-      friendly_name: Garage
-      supported_features: 3
-      device_class: garage
-      custom_ui_state_card: state-card-custom-ui
-      homebridge_cover_type: garage_door
-      state: closed
-  icon: mdi:garage-open-variant
-- id: b402f8fae653458a878d62c878bb6422
-  name: Close the Garage Door
-  entities:
-    cover.garage:
-      wifi_signal: -74
-      distance_sensor: 245
-      door_state: closed
-      friendly_name: Garage
-      supported_features: 3
-      device_class: garage
-      custom_ui_state_card: state-card-custom-ui
-      homebridge_cover_type: garage_door
-      state: closed
-  icon: mdi:garage-variant
+#- id: ac7857ca243d456086551b5eec89f9f3
+#  name: Open the Garage Door
+#  entities:
+#    cover.garage:
+#      wifi_signal: -75
+#      distance_sensor: 245
+#      door_state: closed
+#      friendly_name: Garage
+#      supported_features: 3
+#      device_class: garage
+#      custom_ui_state_card: state-card-custom-ui
+#      homebridge_cover_type: garage_door
+#      state: closed
+#  icon: mdi:garage-open-variant
+#- id: b402f8fae653458a878d62c878bb6422
+#  name: Close the Garage Door
+#  entities:
+#    cover.garage:
+#      wifi_signal: -74
+#      distance_sensor: 245
+#      door_state: closed
+#      friendly_name: Garage
+#      supported_features: 3
+#      device_class: garage
+#      custom_ui_state_card: state-card-custom-ui
+#      homebridge_cover_type: garage_door
+#      state: closed
+#  icon: mdi:garage-variant
+
 - id: '1574386878653'
   name: Kitchen Lights to 3%
   entities:
