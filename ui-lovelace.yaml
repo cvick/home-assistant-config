@@ -97,8 +97,8 @@ views:
           - entity: binary_sensor.opengarage_vehicle
           - entity: sensor.opengarage_dist
           - entity: sensor.opengarage_temp
-          - entity: sensor.opengarage.humid
-          - entity: sensor.opengarage.rssi
+          - entity: sensor.opengarage_humid
+          - entity: sensor.opengarage_rssi
         title: Garage
         show_header_toggle: true
 
