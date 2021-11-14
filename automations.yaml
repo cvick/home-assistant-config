@@ -47,7 +47,7 @@
       minutes: 15
       seconds: 0
       milliseconds: 0
-    from: away
+    from: not_home
     to: home
   condition: []
   action:
@@ -63,7 +63,10 @@
   - platform: sun
     event: sunset
     offset: -00:30
-  condition: []
+  condition:
+  - condition: state
+    entity_id: group.family_presence_detection
+    state: not_home
   action:
   - type: turn_on
     device_id: e3be87619ce7a753fc139b121a390da2
