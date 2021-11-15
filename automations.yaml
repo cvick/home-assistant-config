@@ -73,3 +73,29 @@
     entity_id: switch.porch_light
     domain: switch
   mode: restart
+- id: '1636961601542'
+  alias: Garage Door Opens = Garage Lights On
+  description: ''
+  trigger:
+  - platform: device
+    device_id: 4362bfa413b1f2cf60e12e02ab892491
+    domain: cover
+    entity_id: cover.opengarage
+    type: opening
+  - platform: device
+    device_id: 4362bfa413b1f2cf60e12e02ab892491
+    domain: cover
+    entity_id: cover.opengarage
+    type: opened
+  condition:
+  - condition: device
+    type: is_off
+    device_id: 1d0a07e812ee93aa91b0043c6db43624
+    entity_id: switch.garage_lights
+    domain: switch
+  action:
+  - type: turn_on
+    device_id: 1d0a07e812ee93aa91b0043c6db43624
+    entity_id: switch.garage_lights
+    domain: switch
+  mode: restart
