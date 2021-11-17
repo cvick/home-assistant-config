@@ -93,6 +93,8 @@
     device_id: 1d0a07e812ee93aa91b0043c6db43624
     entity_id: switch.garage_lights
     domain: switch
+  - condition: time
+    after: '12:00:00'
   action:
   - type: turn_on
     device_id: 1d0a07e812ee93aa91b0043c6db43624
