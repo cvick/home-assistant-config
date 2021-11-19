@@ -13,3 +13,4 @@ filter:
       - climate.upstairs
       - cover.opengarage
       - light.couch_light
+      - switch.garage_lights
