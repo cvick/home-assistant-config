@@ -92,6 +92,7 @@ views:
 
       - type: entities
         entities:
+          - switch.garage_lights
           - cover.opengarage
           - entity: binary_sensor.opengarage_vehicle
             name: Car Status
@@ -188,16 +189,16 @@ views:
           - climate.downstairs
         title: Downstairs
         show_header_toggle: true
-      #- type: thermostat
-      #  entity: climate.downstairs
       - type: entities
         entities:
           - switch.lights
           - climate.upstairs
         title: Upstairs
         show_header_toggle: true
-      #- type: thermostat
-      #  entity: climate.upstairs
+      - type: entities
+        entities:
+          - switch.garage_lights
+        title: Garage
 
 #  - !include lovelace/glance-coronavirus.yaml
 
