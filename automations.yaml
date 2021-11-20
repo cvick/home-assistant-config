@@ -101,3 +101,48 @@
     entity_id: switch.garage_lights
     domain: switch
   mode: restart
+- id: '1637312306098'
+  alias: Low Battery Detectionm
+  description: ''
+  use_blueprint:
+    path: Sbyx/low-battery-level-detection-notification-for-all-battery-sensors.yaml
+    input:
+      exclude:
+        entity_id: []
+        device_id:
+        - 4ceb4559025ffbbcccbdd40168d614c3
+        - 7fc49e2c9a338e32bf47fd916df3af11
+        - 415921375f059bd1b36aa784a880bbac
+        - f29bae01a48b0cbc9ba42ac0e1d44639
+        - 7762a17897742b14981c4446f0db836f
+      actions:
+      - service: notify.mobile_app_chris_s_iphone
+        data:
+          message: '{{sensors}} is at or below 20% battery'
+      day: 7
+- id: '1637312436126'
+  alias: Entryway Garage Door Opens, turn on Garage Light
+  description: ''
+  trigger:
+  - type: opened
+    platform: device
+    device_id: 4ceb4559025ffbbcccbdd40168d614c3
+    entity_id: binary_sensor.open_close_xs_sensor_access_control_window_door_is_open
+    domain: binary_sensor
+  condition:
+  - condition: device
+    type: is_off
+    device_id: 1d0a07e812ee93aa91b0043c6db43624
+    entity_id: switch.garage_lights
+    domain: switch
+  - condition: device
+    device_id: 4362bfa413b1f2cf60e12e02ab892491
+    domain: cover
+    entity_id: cover.opengarage
+    type: is_closed
+  action:
+  - type: turn_on
+    device_id: 1d0a07e812ee93aa91b0043c6db43624
+    entity_id: switch.garage_lights
+    domain: switch
+  mode: restart
