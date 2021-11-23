@@ -63,8 +63,10 @@ views:
 
       - type: entities
         entities:
-          - binary_sensor.front_door_open_close_access_control_window_door_is_open
-          - binary_sensor.open_close_xs_sensor_access_control_window_door_is_open
+          - entity: binary_sensor.front_door_open_close_access_control_window_door_is_open
+            name: Front Door
+          - entity: binary_sensor.open_close_xs_sensor_access_control_window_door_is_open
+            name: Entryway Garage Door
         title: Door Sensors
 
       - type: picture-entity
