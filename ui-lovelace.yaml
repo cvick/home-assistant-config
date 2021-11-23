@@ -23,6 +23,7 @@ views:
           - light.hue_color_lamp_4
         title: Chris's Room
         show_header_toggle: true
+      
       - type: entities
         entities:
           - switch.living_room_lights
@@ -31,6 +32,7 @@ views:
           - switch.porch_light
         title: Downstairs
         show_header_toggle: true
+      
       - type: entities
         entities:
           - switch.lights
@@ -59,6 +61,12 @@ views:
         title: Garage
         show_header_toggle: false
 
+      - type: entities
+        entities:
+          - binary_sensor.front_door_open_close_access_control_window_door_is_open
+          - binary_sensor.open_close_xs_sensor_access_control_window_door_is_open
+        title: Door Sensors
+
       - type: picture-entity
         entity: camera.grafana_temp
 
@@ -67,7 +75,7 @@ views:
           - scene.kitchen_lights_to_3
           - scene.close_the_garage_door
           - scene.open_the_garage_door
-        title: Scene
+        title: Scenes
 
       #- type: entities
       #  entities:
