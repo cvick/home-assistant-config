@@ -38,6 +38,7 @@ lights_tab:
     - switch.porch_light
     - switch.stairs_light
     - light.couch_light
+    - switch.garage_lights
 
 ## Floor Setup
 
