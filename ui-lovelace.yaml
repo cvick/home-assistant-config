@@ -69,6 +69,18 @@ views:
             name: Entryway Garage Door
         title: Door Sensors
 
+      - type: entities
+        entities:
+          - entity: binary_sensor.garage_wh_water_leak_sensor_water_alarm_water_leak_detected
+            name: Water Heater
+          - entity: binary_sensor.washing_machine_water_leak_sensor_water_alarm_water_leak_detected
+            name: Washing Machine
+          - entity: binary_sensor.half_bath_water_leak_sensor_water_alarm_water_leak_detected
+            name: Half Bath Closet
+          - entity: binary_sensor.hvac_water_leak_sensor_water_alarm_water_leak_detected
+            name: HVAC
+        title: Water Leak Sensors
+
       - type: picture-entity
         entity: camera.grafana_temp
 
