@@ -110,18 +110,15 @@
       exclude:
         entity_id: []
         device_id:
-        - 4ceb4559025ffbbcccbdd40168d614c3
-        - 7fc49e2c9a338e32bf47fd916df3af11
-        - 415921375f059bd1b36aa784a880bbac
-        - f29bae01a48b0cbc9ba42ac0e1d44639
-        - 7762a17897742b14981c4446f0db836f
+        - b1703148bf9271629229093fb2992ccf
+        - e509a7fbf9cd5b73e1d765b532047e83
       actions:
       - service: notify.mobile_app_chris_s_iphone
         data:
           message: '{{sensors}} is at or below 20% battery'
       day: 7
 - id: '1637312436126'
-  alias: Entryway Garage Door Opens, turn on Garage Light
+  alias: Entryway Garage Door Opens = Turn On Garage Light
   description: ''
   trigger:
   - type: opened
@@ -145,4 +142,29 @@
     device_id: 1d0a07e812ee93aa91b0043c6db43624
     entity_id: switch.garage_lights
     domain: switch
+  - service: input_boolean.turn_on
+    target:
+      entity_id: input_boolean.garage_light_automation
   mode: restart
+- id: '1637837868067'
+  alias: Entryway Garage Door Closes = Turn Off If Turned On By Automation
+  description: ''
+  trigger:
+  - type: not_opened
+    platform: device
+    device_id: 4ceb4559025ffbbcccbdd40168d614c3
+    entity_id: binary_sensor.open_close_xs_sensor_access_control_window_door_is_open
+    domain: binary_sensor
+  condition:
+  - condition: state
+    entity_id: input_boolean.garage_light_automation
+    state: 'on'
+  action:
+  - type: turn_off
+    device_id: 1d0a07e812ee93aa91b0043c6db43624
+    entity_id: switch.garage_lights
+    domain: switch
+  - service: input_boolean.turn_off
+    target:
+      entity_id: input_boolean.garage_light_automation
+  mode: single
