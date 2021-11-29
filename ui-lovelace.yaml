@@ -128,9 +128,14 @@ views:
     cards:
       - type: entities
         entities:
+          - light.entryway_lights
+          - switch.porch_light
+        title: Entryway
+        show_header_toggle: true
+      - type: entities
+        entities:
           - switch.living_room_lights
           - light.kitchen_lights
-          - switch.porch_light
           - switch.stairs_light
           - light.couch_light
           - climate.downstairs
