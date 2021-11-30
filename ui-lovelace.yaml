@@ -97,6 +97,11 @@ views:
           - scene.open_the_garage_door
         title: Scenes
 
+      - type: entities
+        entities:
+          - entity: sensor.ohmconnect_status
+            name: OhmConnect
+
       #- type: entities
       #  entities:
       #    - entity: sensor.cox_utilization
