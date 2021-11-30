@@ -161,6 +161,7 @@ views:
       - type: entities
         entities:
           - switch.garage_lights
+          - cover.opengarage
         title: Garage
 
 #  - !include lovelace/glance-coronavirus.yaml
