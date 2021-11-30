@@ -5,9 +5,9 @@
   icon: mdi:block-helper
   path: pi-hole
   cards:
-    - type: glance
-      title: Pi-hole
-      # show_icon: true
+#    - type: glance
+    - type: entities
+      show_icon: true
       show_name: true
       show_state: true
       entities:
@@ -25,3 +25,5 @@
           icon: mdi:block-helper
         - entity: sensor.pi_hole_dns_unique_domains
           icon: mdi:domain
+      title: Pi-hole Statistics
+      show_header_toggle: false
