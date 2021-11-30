@@ -23,16 +23,22 @@ views:
           - light.hue_color_lamp_4
         title: Chris's Room
         show_header_toggle: true
-      
+
+      - type: entities
+        entities:
+          - light.entryway_lights
+          - switch.porch_light
+        title: Entryway
+        show_header_toggle: true
+
       - type: entities
         entities:
           - switch.living_room_lights
           - light.couch_light
           - light.kitchen_lights
-          - switch.porch_light
         title: Downstairs
         show_header_toggle: true
-      
+
       - type: entities
         entities:
           - switch.lights
