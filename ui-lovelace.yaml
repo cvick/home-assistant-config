@@ -162,6 +162,9 @@ views:
         entities:
           - switch.garage_lights
           - cover.opengarage
+          - entity: binary_sensor.opengarage_vehicle
+            name: Car Status
+            icon: hass:car
         title: Garage
 
 #  - !include lovelace/glance-coronavirus.yaml
