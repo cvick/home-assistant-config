@@ -1,11 +1,12 @@
 # Cox Usage
 
   title: Cox Usage
-  panel: true
+  #panel: true
   icon: mdi:earth
   path: coxusage
   cards:
-    - type: glance
+    #- type: glance
+    - type: entities
       show_icon: true
       show_name: true
       show_state: true
@@ -21,3 +22,4 @@
         - entity: switch.cox_reboot
           icon: mdi:power
       title: Cox Internet Usage
+      show_header_toggle: false
