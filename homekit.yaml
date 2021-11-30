@@ -14,3 +14,4 @@ filter:
       - cover.opengarage
       - light.couch_light
       - switch.garage_lights
+      - light.entryway_lights

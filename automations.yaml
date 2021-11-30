@@ -102,7 +102,7 @@
     domain: switch
   mode: restart
 - id: '1637312306098'
-  alias: Low Battery Detectionm
+  alias: Low Battery Detection
   description: ''
   use_blueprint:
     path: Sbyx/low-battery-level-detection-notification-for-all-battery-sensors.yaml
@@ -110,18 +110,15 @@
       exclude:
         entity_id: []
         device_id:
-        - 4ceb4559025ffbbcccbdd40168d614c3
-        - 7fc49e2c9a338e32bf47fd916df3af11
-        - 415921375f059bd1b36aa784a880bbac
-        - f29bae01a48b0cbc9ba42ac0e1d44639
-        - 7762a17897742b14981c4446f0db836f
+        - b1703148bf9271629229093fb2992ccf
+        - e509a7fbf9cd5b73e1d765b532047e83
       actions:
       - service: notify.mobile_app_chris_s_iphone
         data:
           message: '{{sensors}} is at or below 20% battery'
       day: 7
 - id: '1637312436126'
-  alias: Entryway Garage Door Opens, turn on Garage Light
+  alias: Entryway Garage Door Opens = Turn On Garage Light
   description: ''
   trigger:
   - type: opened
@@ -144,5 +141,165 @@
   - type: turn_on
     device_id: 1d0a07e812ee93aa91b0043c6db43624
     entity_id: switch.garage_lights
+    domain: switch
+  - service: input_boolean.turn_on
+    target:
+      entity_id: input_boolean.garage_light_automation
+  mode: restart
+- id: '1637837868067'
+  alias: Entryway Garage Door Closes = Turn Off If Turned On By Automation
+  description: ''
+  trigger:
+  - type: not_opened
+    platform: device
+    device_id: 4ceb4559025ffbbcccbdd40168d614c3
+    entity_id: binary_sensor.open_close_xs_sensor_access_control_window_door_is_open
+    domain: binary_sensor
+  condition:
+  - condition: state
+    entity_id: input_boolean.garage_light_automation
+    state: 'on'
+  action:
+  - type: turn_off
+    device_id: 1d0a07e812ee93aa91b0043c6db43624
+    entity_id: switch.garage_lights
+    domain: switch
+  - service: input_boolean.turn_off
+    target:
+      entity_id: input_boolean.garage_light_automation
+  mode: single
+- id: '1638003982512'
+  alias: Web UI Notifications to HA app
+  description: ''
+  use_blueprint:
+    path: EPMatt/persistent_notification_to_mobile.yaml
+    input:
+      mobile_notify_service: mobile_app_chris_s_iphone
+- id: '1638004070255'
+  alias: Web UI Notifications to HA app
+  description: ''
+  use_blueprint:
+    path: EPMatt/persistent_notification_to_mobile.yaml
+    input:
+      mobile_notify_service: mobile_app_chris_s_iphone
+- id: '1638004278746'
+  alias: New Automation
+  description: ''
+  use_blueprint:
+    path: EPMatt/persistent_notification_to_mobile.yaml
+    input:
+      mobile_notify_service: mobile_app_chris_s_iphone
+- id: '1638004546075'
+  alias: Water Detected = Send HA app notification
+  description: ''
+  trigger:
+  - type: moist
+    platform: device
+    device_id: 7fc49e2c9a338e32bf47fd916df3af11
+    entity_id: binary_sensor.garage_wh_water_leak_sensor_water_alarm_water_leak_detected
+    domain: binary_sensor
+  - type: moist
+    platform: device
+    device_id: 7762a17897742b14981c4446f0db836f
+    entity_id: binary_sensor.washing_machine_water_leak_sensor_water_alarm_water_leak_detected
+    domain: binary_sensor
+  - type: moist
+    platform: device
+    device_id: f29bae01a48b0cbc9ba42ac0e1d44639
+    entity_id: binary_sensor.half_bath_water_leak_sensor_water_alarm_water_leak_detected
+    domain: binary_sensor
+  - type: moist
+    platform: device
+    device_id: 415921375f059bd1b36aa784a880bbac
+    entity_id: binary_sensor.hvac_water_leak_sensor_water_alarm_water_leak_detected
+    domain: binary_sensor
+  condition: []
+  action:
+  - service: notify.mobile_app_chris_s_iphone
+    data:
+      title: Water Leak Detected
+      message: Water leak has been detected at the {{trigger.name}}
+      data:
+        push:
+        sound:
+          name: US-EN-Alexa-Water-Detected-Generic.wav
+          critical: 1
+          volume: 1
+  mode: restart
+- id: '1638155702390'
+  alias: Send Web UI persistent notifications to Mobile Devices
+  description: ''
+  use_blueprint:
+    path: EPMatt/persistent_notification_to_mobile.yaml
+    input:
+      mobile_notify_service: service.mobile_app_chris_s_iphone
+- id: '1638166098873'
+  alias: Garage Lights - Double Tap On = Keep Lights On (Ignore Door Closing)
+  description: ''
+  trigger:
+  - platform: event
+    event_type: zwave_js_value_notification
+    event_data:
+      label: Scene 001
+      device_id: 1d0a07e812ee93aa91b0043c6db43624
+      value: KeyPressed2x
+  condition:
+  - condition: state
+    entity_id: input_boolean.garage_light_automation
+    state: 'on'
+  action:
+  - service: input_boolean.turn_off
+    target:
+      entity_id: input_boolean.garage_light_automation
+  mode: restart
+- id: '1638178707780'
+  alias: 'Front Door Opens, Porch Light is On, and Living Room Light is Off = Turn
+    On Entryway Light '
+  description: ''
+  trigger:
+  - type: opened
+    platform: device
+    device_id: f126809c8323322a161ae8c08b694694
+    entity_id: binary_sensor.front_door_open_close_access_control_window_door_is_open
+    domain: binary_sensor
+  condition:
+  - condition: device
+    type: is_on
+    device_id: e3be87619ce7a753fc139b121a390da2
+    entity_id: switch.porch_light
+    domain: switch
+  - condition: device
+    type: is_off
+    device_id: cb1c7b2a369c4d2ea064a7b7fe5010f4
+    entity_id: switch.living_room_lights
+    domain: switch
+  action:
+  - type: turn_on
+    device_id: f4678b7b4fd9d823f13b7131655fa99b
+    entity_id: light.entryway_lights
+    domain: light
+  mode: single
+- id: '1638178895797'
+  alias: Front Door Opens After Dusk, Porch Light is Off = Turn On Porch Light
+  description: ''
+  trigger:
+  - type: opened
+    platform: device
+    device_id: f126809c8323322a161ae8c08b694694
+    entity_id: binary_sensor.front_door_open_close_access_control_window_door_is_open
+    domain: binary_sensor
+  condition:
+  - condition: device
+    type: is_off
+    device_id: e3be87619ce7a753fc139b121a390da2
+    entity_id: switch.porch_light
+    domain: switch
+  - condition: sun
+    after: sunset
+    after_offset: -00:30:00
+  action:
+  - type: turn_on
+    device_id: e3be87619ce7a753fc139b121a390da2
+    entity_id: switch.porch_light
     domain: switch
   mode: restart

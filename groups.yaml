@@ -39,6 +39,7 @@ lights_tab:
     - switch.stairs_light
     - light.couch_light
     - switch.garage_lights
+    - light.entryway_lights
 
 ## Floor Setup
 
