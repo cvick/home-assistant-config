@@ -4,7 +4,7 @@
   icon: mdi:waterAlert
   path: water-leak-sensors
   cards:
-    - type: glance
+    - type: entities
       title: Water Leak Sensors
       show_icon: true
       show_name: true
