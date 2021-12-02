@@ -11,9 +11,13 @@
       show_state: true
       entities:
         - entity: binary_sensor.half_bath_water_leak_sensor_water_alarm_water_leak_detected
+          name: Half Bath Closet
         - entity: binary_sensor.garage_wh_water_leak_sensor_water_alarm_water_leak_detected
+          name: Water Heater
         - entity: binary_sensor.washing_machine_water_leak_sensor_water_alarm_water_leak_detected
+          name: Washing Machine
         - entity: binary_sensor.hvac_water_leak_sensor_water_alarm_water_leak_detected
+          name: HVAC
 
     - type: entities
       title: Door / Window Sensors
@@ -22,4 +26,6 @@
       show_state: true
       entities:
         - entity: binary_sensor.front_door_open_close_access_control_window_door_is_open
+          name: Front Door
         - entity: binary_sensor.open_close_xs_sensor_access_control_window_door_is_open
+          name: Entryway Garage Door
