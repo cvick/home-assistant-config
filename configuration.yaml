@@ -57,6 +57,9 @@ input_text:
 counter:
 timer:
 
+# shell_command
+shell_command: !include shell_command.yaml
+
 #customizer:
 #  custom_ui: local
 
