@@ -1,0 +1,1 @@
+  grafana_hvac_image: wget -O grafana_hvac_image http://10.0.0.80:3000/render/d-solo/a9APqismz/hvac?orgId=1&panelId=8&theme=light&width=1000&height=500&tz=America%2FLos_Angeles&from=now-4d&to=now -P www/grafana
