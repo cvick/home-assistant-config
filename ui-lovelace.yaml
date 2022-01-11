@@ -43,6 +43,7 @@ views:
         entities:
           - switch.lights
           - switch.stairs_light
+          - switch.master_bedroom
         title: Upstairs
         show_header_toggle: true
 
@@ -156,6 +157,7 @@ views:
         entities:
           - switch.lights
           - climate.upstairs
+          - switch.master_bedroom
         title: Upstairs
         show_header_toggle: true
       - type: entities
