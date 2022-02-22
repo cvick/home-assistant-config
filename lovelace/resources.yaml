@@ -21,3 +21,7 @@
 
 - url: /hacsfiles/lovelace-card-mod/card-mod.js
   type: module
+
+- url: /hacsfiles/lovelace-xiaomi-vacuum-map-card/xiaomi-vacuum-map-card.js
+  type: module
+                
