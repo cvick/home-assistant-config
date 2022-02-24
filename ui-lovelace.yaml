@@ -180,3 +180,5 @@ views:
   - !include lovelace/pi-hole.yaml
 
   - !include lovelace/water-and-door-window-sensors.yaml
+
+  - !include lovelace/robot-vacuum.yaml
