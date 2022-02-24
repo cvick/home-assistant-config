@@ -17,6 +17,8 @@ lights:
     - switch.porch_light
     - switch.stairs_light
     - light.couch_light
+    - light.entryway_lights
+    - switch.master_bedroom
 
 # Tabs
 
@@ -40,6 +42,7 @@ lights_tab:
     - light.couch_light
     - switch.garage_lights
     - light.entryway_lights
+    - switch.master_bedroom
 
 ## Floor Setup
 
@@ -58,6 +61,7 @@ second_floor:
   entities:
     - climate.upstairs
     - switch.lights
+    - switch.master_bedroom
 
 floors:
   name: Floors

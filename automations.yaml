@@ -25,7 +25,7 @@
     - thu
     - fri
   action:
-  - scene: scene.kitchen_lights_to_3
+  - scene: scene.kitchen_lights_to_15
   mode: single
 - id: git_webhook
   alias: Git Pull
@@ -37,7 +37,7 @@
     data:
       addon: core_git_pull
 - id: '1636608309790'
-  alias: Porch light -  off when all home + 15min
+  alias: Porch light -  off when all home + 15min after 8pm
   description: ''
   trigger:
   - platform: state
@@ -46,15 +46,22 @@
       hours: 0
       minutes: 15
       seconds: 0
-      milliseconds: 0
     from: not_home
     to: home
-  condition: []
+  condition:
+  - condition: state
+    entity_id: input_boolean.front_door_porch_light_automation
+    state: 'on'
+  - condition: time
+    after: '20:00:00'
   action:
   - type: turn_off
     device_id: e3be87619ce7a753fc139b121a390da2
     entity_id: switch.porch_light
     domain: switch
+  - service: input_boolean.turn_off
+    target:
+      entity_id: input_boolean.front_door_porch_light_automation
   mode: restart
 - id: '1636608414451'
   alias: Porch Light - On at dusk -30m
@@ -72,6 +79,9 @@
     device_id: e3be87619ce7a753fc139b121a390da2
     entity_id: switch.porch_light
     domain: switch
+  - service: input_boolean.turn_on
+    target:
+      entity_id: input_boolean.front_door_porch_light_automation
   mode: restart
 - id: '1636961601542'
   alias: Garage Door Opens = Garage Lights On
@@ -232,7 +242,7 @@
   use_blueprint:
     path: EPMatt/persistent_notification_to_mobile.yaml
     input:
-      mobile_notify_service: service.mobile_app_chris_s_iphone
+      mobile_notify_service: mobile_app_chris_s_iphone
 - id: '1638166098873'
   alias: Garage Lights - Double Tap On = Keep Lights On (Ignore Door Closing)
   description: ''
@@ -297,9 +307,135 @@
   - condition: sun
     after: sunset
     after_offset: -00:30:00
+  - condition: state
+    entity_id: input_boolean.front_door_porch_light_automation
+    state: 'off'
   action:
   - type: turn_on
     device_id: e3be87619ce7a753fc139b121a390da2
     entity_id: switch.porch_light
     domain: switch
+  mode: restart
+- id: '1638238833412'
+  alias: Entryway Garage Door Opens, Porch Light is On, and Living Room Light is Off
+    = Turn On Entryway Light
+  description: ''
+  trigger:
+  - type: opened
+    platform: device
+    device_id: 4ceb4559025ffbbcccbdd40168d614c3
+    entity_id: binary_sensor.open_close_xs_sensor_access_control_window_door_is_open
+    domain: binary_sensor
+  condition:
+  - condition: device
+    type: is_on
+    device_id: e3be87619ce7a753fc139b121a390da2
+    entity_id: switch.porch_light
+    domain: switch
+  - condition: device
+    type: is_off
+    device_id: cb1c7b2a369c4d2ea064a7b7fe5010f4
+    entity_id: switch.living_room_lights
+    domain: switch
+  action:
+  - type: turn_on
+    device_id: f4678b7b4fd9d823f13b7131655fa99b
+    entity_id: light.entryway_lights
+    domain: light
+  mode: restart
+- id: '1638487674206'
+  alias: Front Door Closes After Dusk, Porch Light is On = Turn Off Porch Light After
+    Delay
+  description: ''
+  trigger:
+  - type: not_opened
+    platform: device
+    device_id: f126809c8323322a161ae8c08b694694
+    entity_id: binary_sensor.front_door_open_close_access_control_window_door_is_open
+    domain: binary_sensor
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+      milliseconds: 0
+  condition:
+  - condition: device
+    type: is_on
+    device_id: e3be87619ce7a753fc139b121a390da2
+    entity_id: switch.porch_light
+    domain: switch
+  - condition: sun
+    after: sunset
+    after_offset: -00:30:00
+  - condition: state
+    entity_id: input_boolean.front_door_porch_light_automation
+    state: 'off'
+  action:
+  - type: turn_off
+    device_id: e3be87619ce7a753fc139b121a390da2
+    entity_id: switch.porch_light
+    domain: switch
+  mode: restart
+- id: '1638516525616'
+  alias: Send Web UI Persistent Notifications to Mobile Devices
+  description: ''
+  use_blueprint:
+    path: EPMatt/persistent_notification_to_mobile.yaml
+    input:
+      mobile_notify_service: mobile_app_chris_s_iphone
+- id: '1638848081442'
+  alias: Send Web UI persistent notifications to Mobile Devices
+  description: ''
+  use_blueprint:
+    path: EPMatt/persistent_notification_to_mobile.yaml
+    input:
+      mobile_notify_service: service.mobile_app_chris_s_iphone
+- id: '1638848979539'
+  alias: Web UI Notification to Mobile App Notification
+  description: ''
+  trigger:
+  - platform: event
+    event_type: call_service
+    event_data:
+      domain: persistent_notification
+      service: create
+  condition: []
+  action:
+  - service: notify.mobile_app_chris_s_iphone
+    data:
+      title: '{{ trigger.event.data.service_data.title }}'
+      message: '{{ trigger.event.data.service_data.message }}'
+      apns_headers:
+        apns-collapse-id: '{{ trigger.event.data.service_data.notification_id if replace_notifications
+          else "" }}'
+  mode: single
+- id: '1639586299863'
+  alias: Grafana - HVAC - Get Image
+  description: ''
+  trigger:
+  - platform: time_pattern
+    minutes: /15
+  condition: []
+  action: []
+  mode: restart
+- id: '1640941284019'
+  alias: Porch Light - Back On If Family Group Changes To Away
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: group.family_presence_detection
+    from: home
+    to: not_home
+  condition:
+  - condition: sun
+    after: sunset
+    after_offset: '1:00:00'
+  action:
+  - type: turn_on
+    device_id: e3be87619ce7a753fc139b121a390da2
+    entity_id: switch.porch_light
+    domain: switch
+  - service: input_boolean.turn_on
+    target:
+      entity_id: input_boolean.front_door_porch_light_automation
   mode: restart
