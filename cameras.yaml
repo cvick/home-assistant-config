@@ -7,3 +7,12 @@
     still_image_url: 'http://10.0.0.80:3000/render/d-solo/a9APqismz/hvac?orgId=1&panelId=8&theme=light&width=1000&height=500&tz=America%2FLos_Angeles&from=now-4d&to=now'
     username: !secret grafana_user
     password: !secret grafana_pass
+
+  - platform: xiaomi_cloud_map_extractor
+    host: !secret xiaomi_vacuum_host
+    token: !secret xiaomi_vacuum_token
+    username: !secret xiaomi_cloud_username
+    password: !secret xiaomi_cloud_password
+    draw: ['all']
+    attributes:
+      - calibration_points
