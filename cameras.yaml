@@ -16,3 +16,4 @@
     draw: ['all']
     attributes:
       - calibration_points
+      - rooms
