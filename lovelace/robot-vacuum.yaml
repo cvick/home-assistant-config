@@ -24,4 +24,22 @@
       calibration_source:
           camera: true
       map_modes:
-
+        - template: vacuum_goto
+        - template: vacuum_clean_zone
+        - template: vacuum_clean_segment
+          predefined_selections:
+            - id: 17
+              icon:
+                name: "mdi:broom"
+                x: 26650
+                y: 22550
+            - id: 18
+              icon:
+                name: "mdi:broom"
+                x: 27000
+                y: 26200
+            - id: 16
+              icon:
+                name: "mdi:broom"
+                x: 24375
+                y: 26300
