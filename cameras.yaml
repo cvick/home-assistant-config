@@ -17,3 +17,4 @@
     attributes:
       - calibration_points
       - rooms
+      - room_numbers
