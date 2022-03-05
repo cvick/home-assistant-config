@@ -159,6 +159,7 @@ views:
           - switch.lights
           - climate.upstairs
           - switch.master_bedroom
+          - switch.upstairs_bathroom_fan
         title: Upstairs
         show_header_toggle: true
       - type: entities
