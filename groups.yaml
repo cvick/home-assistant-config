@@ -62,6 +62,7 @@ second_floor:
     - climate.upstairs
     - switch.lights
     - switch.master_bedroom
+    - switch.upstairs_bathroom_fan
 
 floors:
   name: Floors
