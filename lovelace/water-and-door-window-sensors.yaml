@@ -29,3 +29,18 @@
           name: Front Door
         - entity: binary_sensor.open_close_xs_sensor_access_control_window_door_is_open
           name: Entryway Garage Door
+
+    - type: entities
+      title: Motion / Light / Temp / Humidity
+      show_icon: true
+      show_name: true
+      show_state: true
+      entities:
+        - entity: binary_sensor.upstairs_bathroom_sensor_home_security_motion_detection
+          name: Upstairs Bathroom Motion
+        - entity: sensor.upstairs_bathroom_sensor_air_temperature
+          name: Upstairs Bathroom Temperature
+        - entity: sensor.upstairs_bathroom_sensor_humidity
+          name: Upstairs Bathroom Humidity
+        - entity: sensor.upstairs_bathroom_sensor_illuminance
+          name: Upstairs Bathroom Light
