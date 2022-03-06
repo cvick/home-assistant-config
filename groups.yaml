@@ -19,6 +19,7 @@ lights:
     - light.couch_light
     - light.entryway_lights
     - switch.master_bedroom
+    - light.upstairs_bathroom_light
 
 # Tabs
 
@@ -43,6 +44,7 @@ lights_tab:
     - switch.garage_lights
     - light.entryway_lights
     - switch.master_bedroom
+    - light.upstairs_bathroom_light
 
 ## Floor Setup
 
@@ -62,6 +64,7 @@ second_floor:
     - climate.upstairs
     - switch.lights
     - switch.master_bedroom
+    - light.upstairs_bathroom_light
     - switch.upstairs_bathroom_fan
 
 floors:

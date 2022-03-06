@@ -44,6 +44,7 @@ views:
           - switch.lights
           - switch.stairs_light
           - switch.master_bedroom
+          - light.upstairs_bathroom_light
           - switch.upstairs_bathroom_fan
         title: Upstairs
         show_header_toggle: true
