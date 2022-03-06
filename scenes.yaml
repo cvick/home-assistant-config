@@ -1,32 +1,3 @@
-#- id: ac7857ca243d456086551b5eec89f9f3
-#  name: Open the Garage Door
-#  entities:
-#    cover.garage:
-#      wifi_signal: -75
-#      distance_sensor: 245
-#      door_state: closed
-#      friendly_name: Garage
-#      supported_features: 3
-#      device_class: garage
-#      custom_ui_state_card: state-card-custom-ui
-#      homebridge_cover_type: garage_door
-#      state: closed
-#  icon: mdi:garage-open-variant
-#- id: b402f8fae653458a878d62c878bb6422
-#  name: Close the Garage Door
-#  entities:
-#    cover.garage:
-#      wifi_signal: -74
-#      distance_sensor: 245
-#      door_state: closed
-#      friendly_name: Garage
-#      supported_features: 3
-#      device_class: garage
-#      custom_ui_state_card: state-card-custom-ui
-#      homebridge_cover_type: garage_door
-#      state: closed
-#  icon: mdi:garage-variant
-
 - id: '1574386878653'
   name: Kitchen Lights to 3%
   entities:
@@ -35,3 +6,27 @@
       state: 'on'
     zwave.zooz_unknown_typeb112_id261c_2:
       state: ready
+- id: '1639509772746'
+  name: Close the Garage Door
+  entities:
+    cover.opengarage:
+      device_class: garage
+      friendly_name: OpenGarage
+      supported_features: 3
+      custom_ui_state_card: state-card-custom-ui
+      state: closed
+  icon: mdi:garage-variant
+- id: '1642119970091'
+  name: Kitchen Lights to 15%
+  entities:
+    light.kitchen_lights:
+      supported_color_modes:
+      - brightness
+      color_mode: brightness
+      brightness: 39
+      friendly_name: Kitchen Lights
+      supported_features: 32
+      custom_ui_state_card: state-card-custom-ui
+      icon: mdi:lightbulb-outline
+      emulated_hue: true
+      state: 'on'
