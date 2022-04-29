@@ -142,6 +142,10 @@ sensor: !include sensors.yaml
 # Switches
 switch: !include  switches.yaml
 
+# Packages Directory
+packages: !include_dir_named packages
+
+
 # Nextcloud
 
 nextcloud:
