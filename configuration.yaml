@@ -84,7 +84,7 @@ api:
 # the developers to assist with development of Home Assistant.
 # For more information, please see:
 # https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
-updater:
+#updater:
   # Optional, allows Home Assistant developers to focus on popular components.
   # include_used_components: true
 
@@ -143,7 +143,7 @@ sensor: !include sensors.yaml
 switch: !include  switches.yaml
 
 # Packages Directory
-packages: !include_dir_named packages
+#packages: !include_dir_named packages
 
 
 # Nextcloud
