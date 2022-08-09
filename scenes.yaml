@@ -30,3 +30,13 @@
       icon: mdi:lightbulb-outline
       emulated_hue: true
       state: 'on'
+- id: '1648507917348'
+  name: Open the Garage Door
+  entities:
+    cover.opengarage:
+      device_class: garage
+      friendly_name: OpenGarage
+      supported_features: 3
+      custom_ui_state_card: state-card-custom-ui
+      state: open
+  icon: mdi:garage-open-variant

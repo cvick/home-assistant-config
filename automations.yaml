@@ -228,7 +228,7 @@
   - service: notify.mobile_app_chris_s_iphone
     data:
       title: Water Leak Detected
-      message: Water leak has been detected at the {{trigger.name}}
+      message: Water leak has been detected at the {{device.name}}
       data:
         push:
         sound:
@@ -447,3 +447,125 @@
     input:
       vacuum: vacuum.roborock_s5_max
       camera: camera.xiaomi_cloud_map_extractor
+- id: '1646596993998'
+  alias: Motion - Upstairs Bathroom Light - Normal Light
+  description: Turn on if after sundown and before midnight
+  trigger:
+  - type: motion
+    platform: device
+    device_id: b2259036d5cb481cd837164f924fb7b6
+    entity_id: binary_sensor.upstairs_bathroom_sensor_home_security_motion_detection
+    domain: binary_sensor
+  condition:
+  - condition: sun
+    after: sunset
+  - condition: device
+    type: is_off
+    device_id: f716a4d5908662d57e3e03b231088098
+    entity_id: light.upstairs_bathroom_light
+    domain: light
+  - condition: time
+    before: 00:00:00
+    weekday:
+    - sun
+    - sat
+    - fri
+    - thu
+    - wed
+    - tue
+    - mon
+  action:
+  - type: turn_on
+    device_id: f716a4d5908662d57e3e03b231088098
+    entity_id: light.upstairs_bathroom_light
+    domain: light
+    brightness_pct: 50
+  mode: restart
+- id: '1646644319478'
+  alias: Motion - Upstairs Bathroom Light - Nightlight
+  description: ''
+  trigger:
+  - type: motion
+    platform: device
+    device_id: b2259036d5cb481cd837164f924fb7b6
+    entity_id: binary_sensor.upstairs_bathroom_sensor_home_security_motion_detection
+    domain: binary_sensor
+  condition:
+  - condition: time
+    before: 00:00:00
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+    - sat
+    - sun
+    after: 00:00:00
+  - condition: sun
+    before: sunrise
+  - condition: device
+    type: is_off
+    device_id: f716a4d5908662d57e3e03b231088098
+    entity_id: light.upstairs_bathroom_light
+    domain: light
+  action:
+  - type: turn_on
+    device_id: f716a4d5908662d57e3e03b231088098
+    entity_id: light.upstairs_bathroom_light
+    domain: light
+    brightness_pct: 10
+  mode: restart
+- id: '1646723972912'
+  alias: Humidity - Upstairs Bathroom Fan On
+  description: ''
+  trigger:
+  - type: humidity
+    platform: device
+    device_id: b2259036d5cb481cd837164f924fb7b6
+    entity_id: sensor.upstairs_bathroom_sensor_humidity
+    domain: sensor
+    above: 60
+  condition: []
+  action:
+  - type: turn_on
+    device_id: 974156a1a00d048ba59b19a94af2a6be
+    entity_id: switch.upstairs_bathroom_fan
+    domain: switch
+  - service: input_boolean.turn_on
+    data: {}
+    target:
+      entity_id: input_boolean.upstairs_bathroom_fan_automation
+  mode: single
+- id: '1646724050645'
+  alias: Humidity - Upstairs Bathroom Fan Off
+  description: ''
+  trigger:
+  - type: humidity
+    platform: device
+    device_id: b2259036d5cb481cd837164f924fb7b6
+    entity_id: sensor.upstairs_bathroom_sensor_humidity
+    domain: sensor
+    below: 59
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+  condition:
+  - condition: state
+    entity_id: input_boolean.upstairs_bathroom_fan_automation
+    state: 'on'
+  action:
+  - type: turn_on
+    device_id: 974156a1a00d048ba59b19a94af2a6be
+    entity_id: switch.upstairs_bathroom_fan
+    domain: switch
+  - service: input_boolean.turn_off
+    data: {}
+    target:
+      entity_id: input_boolean.upstairs_bathroom_fan_automation
+  - type: turn_off
+    device_id: 974156a1a00d048ba59b19a94af2a6be
+    entity_id: switch.upstairs_bathroom_fan
+    domain: switch
+  mode: single
