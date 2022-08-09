@@ -48,6 +48,9 @@ frontend:
 # Enables configuration UI
 config:
 
+# Enable Energy Dashboard
+energy:
+
 # HACS plug-in - remote syslog
 remote_syslog:
 
