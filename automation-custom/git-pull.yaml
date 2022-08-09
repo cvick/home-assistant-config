@@ -1,0 +1,10 @@
+- id: git_webhook
+  alias: Git Pull
+  trigger:
+    platform: webhook
+    webhook_id: git_pull_2586245632
+  action:
+  - service: hassio.addon_restart
+    data:
+      addon: core_git_pull
+- id: '1636608309790'
