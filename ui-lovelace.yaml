@@ -46,6 +46,7 @@ views:
           - switch.master_bedroom
           - light.upstairs_bathroom_light
           - switch.upstairs_bathroom_fan
+          - switch.andrews_room
         title: Upstairs
         show_header_toggle: true
 
@@ -67,6 +68,10 @@ views:
             icon: mdi:water-percent
           - entity: sensor.opengarage_rssi
             name: WiFi Signal Strength
+          - entity: switch.washer
+            name: Washer
+          - entity: switch.dryer
+            name: Dryer
         title: Garage
         show_header_toggle: false
 
@@ -161,6 +166,7 @@ views:
           - climate.upstairs
           - switch.master_bedroom
           - switch.upstairs_bathroom_fan
+          - switch.andrews_room
         title: Upstairs
         show_header_toggle: true
       - type: entities
@@ -170,6 +176,8 @@ views:
           - entity: binary_sensor.opengarage_vehicle
             name: Car Status
             icon: hass:car
+          - switch.washer
+          - switch.dryer
         title: Garage
 
 #  - !include lovelace/glance-coronavirus.yaml
