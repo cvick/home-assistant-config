@@ -1,6 +1,6 @@
 # Add new entities here to make then available in HomeKit
 
-auto_start: false
+auto_start: true
 
 filter:
     include_entities:
