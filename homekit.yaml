@@ -1,5 +1,7 @@
 # Add new entities here to make then available in HomeKit
 
+name: Home Assistant Bridge 01
+
 auto_start: true
 
 filter:
