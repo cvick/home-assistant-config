@@ -29,10 +29,10 @@ influxdb:
   token: !secret influxtoken
   bucket: home-assistant
 
-opnsense:
-  url: https://10.0.0.1:7443/api
-  api_secret: !secret opnsenseapisecret
-  api_key: !secret opnsenseapikey
+#opnsense:
+#  url: https://10.0.0.1:7443/api
+#  api_secret: !secret opnsenseapisecret
+#  api_key: !secret opnsenseapikey
 
 # Use Postgres for logging
 recorder: !include recorder-postgres.yaml
