@@ -20,6 +20,7 @@ lights:
     - light.entryway_lights
     - switch.master_bedroom
     - light.upstairs_bathroom_light
+    - switch.christmas_tree
 
 # Tabs
 
@@ -45,6 +46,7 @@ lights_tab:
     - light.entryway_lights
     - switch.master_bedroom
     - light.upstairs_bathroom_light
+    - switch.christmas_tree
 
 ## Floor Setup
 
@@ -57,6 +59,7 @@ first_floor:
     - switch.porch_light
     - switch.stairs_light
     - light.couch_light
+    - switch.christmas_tree
 
 second_floor:
   name: Second Floor

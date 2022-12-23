@@ -18,3 +18,4 @@ filter:
       - switch.garage_lights
       - light.entryway_lights
       - switch.master_bedroom
+      - switch.christmas_tree
