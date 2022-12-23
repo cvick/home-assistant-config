@@ -36,6 +36,7 @@ views:
           - switch.living_room_lights
           - light.couch_light
           - light.kitchen_lights
+          - switch.christmas_tree
         title: Downstairs
         show_header_toggle: true
 
@@ -158,6 +159,7 @@ views:
           - switch.stairs_light
           - light.couch_light
           - climate.downstairs
+          - switch.christmas_tree
         title: Downstairs
         show_header_toggle: true
       - type: entities
