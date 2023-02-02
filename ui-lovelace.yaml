@@ -108,6 +108,16 @@ views:
 
       - type: entities
         entities:
+          - binary_sensor.smoke_co_chris_smoke_detected
+          - binary_sensor.smoke_co_chris_carbon_monoxide_detected
+          - binary_sensor.smoke_co_andrew_smoke_detected
+          - binary_sensor.smoke_co_andrew_carbon_monoxide_detected
+          - binary_sensor.smoke_co_master_smoke_detected
+          - binary_sensor.smoke_co_master_carbon_monoxide_detected
+        title: Smoke / CO Detectors
+
+      - type: entities
+        entities:
           - entity: sensor.ohmconnect_status
             name: OhmConnect
 
