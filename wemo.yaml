@@ -1,5 +1,5 @@
 # Static mappings for WeMo devices
-discovery: false
+discovery: true
 static:
     - 10.0.0.110
     - 10.0.0.111
