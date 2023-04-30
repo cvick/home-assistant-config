@@ -154,10 +154,10 @@ packages: !include_dir_named packages
 
 # Nextcloud
 
-nextcloud:
-  url: https://nc.chrisvick.com
-  username: cvick
-  password: !secret nextcloud
+#nextcloud:
+#  url: https://nc.chrisvick.com
+#  username: cvick
+#  password: !secret nextcloud
 
 # Text to speech
 #tts:
