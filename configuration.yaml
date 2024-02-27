@@ -133,9 +133,9 @@ emulated_hue:
   expose_by_default: false
 
 # Real Hue bridge
-hue:
-  bridges:
-    - host: 10.0.0.112
+#hue:
+#  bridges:
+#    - host: 10.0.0.112
 
 # Add links to sidebar
 panel_iframe: !include panel_iframe.yaml
