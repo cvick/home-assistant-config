@@ -51,6 +51,9 @@ frontend:
 # Enables configuration UI
 config:
 
+# Enables my.home-assistant.io integreation
+my:
+
 # Enable Energy Dashboard
 energy:
 
