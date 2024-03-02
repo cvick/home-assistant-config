@@ -47,18 +47,18 @@ light.couch_light:
 
 ## Weather
 
-sensor.dark_sky_temperature:
-  friendly_name: Current Temp
-sensor.dark_sky_temperature_max:
-  friendly_name: Today's High
-sensor.yr_symbol:
-  friendly_name: Forecast
-sensor.dark_sky_precip_probability:
-  friendly_name: Chance of Rain
-sensor.dark_sky_daytime_high_temperature:
-  friendly_name: Today's High
-sensor.dark_sky_summary:
-  friendly_name: Current Condition
+#sensor.dark_sky_temperature:
+  #friendly_name: Current Temp
+#sensor.dark_sky_temperature_max:
+  #friendly_name: Today's High
+#sensor.yr_symbol:
+  #friendly_name: Forecast
+#sensor.dark_sky_precip_probability:
+  #friendly_name: Chance of Rain
+#sensor.dark_sky_daytime_high_temperature:
+  #friendly_name: Today's High
+#sensor.dark_sky_summary:
+  #friendly_name: Current Condition
 
 ## Covers
 

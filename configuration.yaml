@@ -93,15 +93,16 @@ api:
 # the developers to assist with development of Home Assistant.
 # For more information, please see:
 # https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
-updater:
+#updater:
   # Optional, allows Home Assistant developers to focus on popular components.
   # include_used_components: true
 
 # Discover some devices automatically
-discovery:
-  ignore:
-    - apple_tv
-    - google_cast
+# Removed in 2023.8
+#discovery:
+  #ignore:
+    #- apple_tv
+    #- google_cast
 
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
@@ -135,9 +136,9 @@ emulated_hue:
   expose_by_default: false
 
 # Real Hue bridge
-hue:
-  bridges:
-    - host: 10.0.0.112
+#hue:
+#  bridges:
+#    - host: 10.0.0.112
 
 # Add links to sidebar
 panel_iframe: !include panel_iframe.yaml
@@ -152,15 +153,15 @@ sensor: !include sensors.yaml
 switch: !include  switches.yaml
 
 # Packages Directory
-packages: !include_dir_named packages
+#packages: !include_dir_named packages
 
 
 # Nextcloud
 
-nextcloud:
-  url: https://nc.chrisvick.com
-  username: cvick
-  password: !secret nextcloud
+#nextcloud:
+#  url: https://nc.chrisvick.com
+#  username: cvick
+#  password: !secret nextcloud
 
 # Text to speech
 #tts:

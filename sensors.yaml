@@ -1,12 +1,12 @@
 # Weather
-  - platform: darksky
-    api_key: !secret darksky_api_key
-    monitored_conditions:
-      - temperature_high
-      - temperature
-      - precip_probability
-      - summary
-    scan_interval: 600
+  #- platform: darksky
+  #  api_key: !secret darksky_api_key
+  #  monitored_conditions:
+  #    - temperature_high
+  #    - temperature
+  #    - precip_probability
+  #    - summary
+  #  scan_interval: 600
 
 # Sensor Templates
 
