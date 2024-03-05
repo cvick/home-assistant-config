@@ -19,3 +19,4 @@ filter:
       - light.entryway_lights
       - switch.master_bedroom
       - switch.christmas_tree
+      - script.vent_garage
