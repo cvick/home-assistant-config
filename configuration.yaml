@@ -189,8 +189,8 @@ script: !include scripts.yaml
 scene: !include scenes.yaml
 
 # Enable Lovelace YAML mode
-lovelace:
-  mode: yaml
+#lovelace:
+#  mode: yaml
 
 # Custom Devices
 
