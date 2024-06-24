@@ -40,9 +40,9 @@ recorder: !include recorder-postgres.yaml
 # Log Viewer add on
 logger:
   default: warning
-  logs:
-    homeassistant.components.homekit: debug
-    pyhap: debug
+#  logs:
+#    homeassistant.components.homekit: debug
+#    pyhap: debug
 
 # Enables the frontend
 frontend:
