@@ -1,12 +1,5 @@
 # Custom Groups
 
-# thermostats:
-#   name: Thermostats
-# #  view: yes
-#   entities:
-#     - climate.downstairs
-#     - climate.upstairs
-
 lights:
   name: Lights
 #  view: yes
@@ -60,6 +53,7 @@ first_floor:
     - switch.stairs_light
     - light.couch_light
     - switch.christmas_tree
+    - lock.garagedoor
 
 second_floor:
   name: Second Floor
@@ -76,13 +70,6 @@ floors:
   entities:
     - group.first_floor
     - group.second_floor
-
-#garage:
-#  name: Garage
-#  entities:
-#    - cover.garage
-#    - sensor.garage_status
-#    - sensor.garage_car_present
 
 # Family Presence Detection for automations
 family_presence_detection:
