@@ -1,13 +1,3 @@
-# Weather
-  #- platform: darksky
-  #  api_key: !secret darksky_api_key
-  #  monitored_conditions:
-  #    - temperature_high
-  #    - temperature
-  #    - precip_probability
-  #    - summary
-  #  scan_interval: 600
-
 # Sensor Templates
 
   - platform: template
@@ -21,54 +11,6 @@
         friendly_name: "Upstairs Temperature"
         unit_of_measurement: "°F"
         value_template: "{{ state_attr('climate.upstairs', 'current_temperature')}}"
-
-#  - platform: template
-#    sensors:
-#      garage_status:
-#        friendly_name: 'Garage Door Status'
-#        value_template: '{% if states.cover.garage %}
-#          {% if states.cover.garage.attributes["door_state"] == "open" %}
-#            Open
-#          {% elif states.cover.garage.attributes["door_state"] == "closed" %}
-#            Closed
-#          {% elif states.cover.garage.attributes["door_state"] == "opening" %}
-#            Opening
-#          {% elif states.cover.garage.attributes["door_state"] == "closing" %}
-#            Closing
-#          {% else %}
-#            Unknown
-#          {% endif %}
-#          {% else %}
-#          n/a
-#          {% endif %}'
-#      garage_car_present:
-#        friendly_name: 'Car in Garage'
-#        value_template: '{% if states.cover.garage %}
-#          {% if states.cover.garage.state == "open" %}
-#            n/a
-#          {% elif ((states.cover.garage.attributes["distance_sensor"] > 50) and (states.cover.garage.attributes["distance_sensor"] < 150)) %}
-#            Yes
-#          {% else %}
-#            No
-#          {% endif %}
-#          {% else %}
-#          n/a
-#          {% endif %}'
-
-#  new OpenGarage integration template
-#  - platform: template
-#    sensors:
-#      binary_sensor.opengarage_vehicle:
-#        value_template: >-
-#              {% if states.sensor.opengarage_dist.state | int == 0 %}
-#              Disabled
-#              {% elif (states.sensor.opengarage_dist.state | int > 0) and (states.sensor.opengarage_dist.state | int <= 55) %}
-#              Unknown (Door Open)
-#              {% elif (states.sensor.opengarage_dist.state | int > 55) and (states.sensor.opengarage_dist.state | int <= 170) %}
-#              Present
-#              {% else %}
-#              Absent
-#              {% endif %}
 
 # seedbox rtorrent
 
