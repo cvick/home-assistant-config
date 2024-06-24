@@ -30,8 +30,12 @@
 - id: git_webhook
   alias: Git Pull
   trigger:
-    platform: webhook
+  - platform: webhook
     webhook_id: git_pull_2586245632
+    allowed_methods:
+    - POST
+    - PUT
+    local_only: false
   action:
   - service: hassio.addon_restart
     data:
@@ -123,7 +127,7 @@
         - b1703148bf9271629229093fb2992ccf
         - e509a7fbf9cd5b73e1d765b532047e83
       actions:
-      - service: notify.mobile_app_chris_s_iphone
+      - service: notify.ios_chriss_iphone
         data:
           message: '{{sensors}} is at or below 20% battery'
       day: 7
@@ -231,10 +235,10 @@
       message: Water leak has been detected at the {{device.name}}
       data:
         push:
-        sound:
-          name: US-EN-Alexa-Water-Detected-Generic.wav
-          critical: 1
-          volume: 1
+          sound:
+            name: US-EN-Alexa-Water-Detected-Generic.wav
+            critical: 1
+            volume: 1
   mode: restart
 - id: '1638155702390'
   alias: Send Web UI persistent notifications to Mobile Devices
@@ -383,32 +387,6 @@
     path: EPMatt/persistent_notification_to_mobile.yaml
     input:
       mobile_notify_service: mobile_app_chris_s_iphone
-- id: '1638848081442'
-  alias: Send Web UI persistent notifications to Mobile Devices
-  description: ''
-  use_blueprint:
-    path: EPMatt/persistent_notification_to_mobile.yaml
-    input:
-      mobile_notify_service: service.mobile_app_chris_s_iphone
-- id: '1638848979539'
-  alias: Web UI Notification to Mobile App Notification
-  description: ''
-  trigger:
-  - platform: event
-    event_type: call_service
-    event_data:
-      domain: persistent_notification
-      service: create
-  condition: []
-  action:
-  - service: notify.mobile_app_chris_s_iphone
-    data:
-      title: '{{ trigger.event.data.service_data.title }}'
-      message: '{{ trigger.event.data.service_data.message }}'
-      apns_headers:
-        apns-collapse-id: '{{ trigger.event.data.service_data.notification_id if replace_notifications
-          else "" }}'
-  mode: single
 - id: '1639586299863'
   alias: Grafana - HVAC - Get Image
   description: ''
@@ -453,8 +431,8 @@
   trigger:
   - type: motion
     platform: device
-    device_id: b2259036d5cb481cd837164f924fb7b6
-    entity_id: binary_sensor.upstairs_bathroom_sensor_home_security_motion_detection
+    device_id: c4e05f87790f403d5cd1fca49f0adf8a
+    entity_id: 0e3c79d4d714f1df83c2e57b2cc28838
     domain: binary_sensor
   condition:
   - condition: sun
@@ -514,7 +492,7 @@
     device_id: f716a4d5908662d57e3e03b231088098
     entity_id: light.upstairs_bathroom_light
     domain: light
-    brightness_pct: 10
+    brightness_pct: 20
   mode: restart
 - id: '1646723972912'
   alias: Humidity - Upstairs Bathroom Fan On
@@ -568,4 +546,147 @@
     device_id: 974156a1a00d048ba59b19a94af2a6be
     entity_id: switch.upstairs_bathroom_fan
     domain: switch
+  mode: single
+- id: '1661140476685'
+  alias: Water Detected = Send HA app notification (Duplicate)
+  description: ''
+  trigger:
+  - type: moist
+    platform: device
+    device_id: 7fc49e2c9a338e32bf47fd916df3af11
+    entity_id: binary_sensor.garage_wh_water_leak_sensor_water_alarm_water_leak_detected
+    domain: binary_sensor
+  - type: moist
+    platform: device
+    device_id: 7762a17897742b14981c4446f0db836f
+    entity_id: binary_sensor.washing_machine_water_leak_sensor_water_alarm_water_leak_detected
+    domain: binary_sensor
+  - type: moist
+    platform: device
+    device_id: f29bae01a48b0cbc9ba42ac0e1d44639
+    entity_id: binary_sensor.half_bath_water_leak_sensor_water_alarm_water_leak_detected
+    domain: binary_sensor
+  - type: moist
+    platform: device
+    device_id: 415921375f059bd1b36aa784a880bbac
+    entity_id: binary_sensor.hvac_water_leak_sensor_water_alarm_water_leak_detected
+    domain: binary_sensor
+  - platform: state
+    entity_id:
+    - binary_sensor.garage_wh_water_leak_sensor_water_alarm_water_leak_detected
+    from: 'false'
+    to: 'true'
+  condition: []
+  action:
+  - service: notify.mobile_app_chris_s_iphone
+    data:
+      title: Water Leak Detected
+      message: Water leak has been detected at the {{device.name}}
+      data:
+        push:
+          sound:
+            name: US-EN-Alexa-Water-Detected-Generic.wav
+            critical: 1
+            volume: 1
+  mode: restart
+- id: '1661142029824'
+  alias: Water Leak Notification - Blueprint
+  description: ''
+  use_blueprint:
+    path: TurtleFX/leak-detector-notifier.yaml
+    input:
+      actions:
+      - service: notify.ios_chriss_iphone
+        data:
+          title: Leak Detected
+          message: '{{ trigger.event.data.new_state.attributes.friendly_name }} has
+            detected a leak!'
+          data:
+            push:
+              sound:
+                name: US-EN-Alexa-Water-Detected-Generic.wav
+                critical: 1
+                volume: 1
+- id: '1663035327991'
+  alias: Leak detection & notifier 2
+  description: ''
+  use_blueprint:
+    path: bbbenji/leak-detector-notifier.yaml
+    input:
+      notify_device: e509a7fbf9cd5b73e1d765b532047e83
+- id: '1677303092503'
+  alias: Smoke Alert
+  description: ''
+  use_blueprint:
+    path: user-x-adm/smoke-alert-en.yaml
+    input:
+      sensor:
+      - binary_sensor.smoke_co_andrew_smoke_detected
+      - binary_sensor.smoke_co_chris_smoke_detected
+      - binary_sensor.smoke_co_master_smoke_detected
+- id: '1677303703687'
+  alias: Smoke Detector Notification
+  description: ''
+  trigger:
+  - type: smoke
+    platform: device
+    device_id: 769df9de0132834466382d98fb7c81f1
+    entity_id: binary_sensor.smoke_co_chris_smoke_detected
+    domain: binary_sensor
+  - type: smoke
+    platform: device
+    device_id: 3446fbd11ae0d751f61ace6f6799bf25
+    entity_id: binary_sensor.smoke_co_andrew_smoke_detected
+    domain: binary_sensor
+  - type: smoke
+    platform: device
+    device_id: b186d9a2a9cda67cb8a42a50a6e4c6cb
+    entity_id: binary_sensor.smoke_co_master_smoke_detected
+    domain: binary_sensor
+  condition: []
+  action:
+  - service: notify.notify
+    data:
+      target: e509a7fbf9cd5b73e1d765b532047e83
+      title: FIRE / SMOKE DETECTED
+      message: '{{ trigger.to_state.name }}'
+  mode: single
+- id: '1709173532025'
+  alias: Vent Garage
+  description: Only if door is open
+  trigger:
+  - platform: state
+    entity_id:
+    - input_button.vent_garage_door
+  condition:
+  - condition: state
+    entity_id: cover.opengarage
+    attribute: custom_ui_state_card
+    state: open
+  action:
+  - service: cover.close_cover
+    metadata: {}
+    data: {}
+    target:
+      entity_id: cover.opengarage
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 12
+      milliseconds: 0
+  - service: cover.open_cover
+    metadata: {}
+    data: {}
+    target:
+      entity_id: cover.opengarage
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 2
+      milliseconds: 0
+  - service: cover.close_cover
+    metadata: {}
+    data: {}
+    target:
+      entity_id: cover.opengarage
   mode: single
