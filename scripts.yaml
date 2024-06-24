@@ -1,36 +1,99 @@
-# Hue Scripts
-
 arctic_aurora_on:
   sequence:
-    - service: hue.hue_activate_scene
-      data:
-        group_name: "Chris's Room"
-        scene_name: "Arctic aurora"
-        
+  - service: hue.hue_activate_scene
+    data:
+      group_name: Chris's Room
+      scene_name: Arctic aurora
 packers_on:
   sequence:
-    - service: hue.hue_activate_scene
-      data:
-        group_name: "Chris's Room"
-        scene_name: "Packers"
-        
+  - service: hue.hue_activate_scene
+    data:
+      group_name: Chris's Room
+      scene_name: Packers
 nightlight_on:
   sequence:
-    - service: hue.hue_activate_scene
-      data:
-        group_name: "Chris's Room"
-        scene_name: "Nightlight"
-        
+  - service: hue.hue_activate_scene
+    data:
+      group_name: Chris's Room
+      scene_name: Nightlight
 vaporwave_on:
   sequence:
-    - service: hue.hue_activate_scene
-      data:
-        group_name: "Chris's Room"
-        scene_name: "Vaporwave"
-        
+  - service: hue.hue_activate_scene
+    data:
+      group_name: Chris's Room
+      scene_name: Vaporwave
 code_red_on:
   sequence:
-    - service: hue.hue_activate_scene
-      data:
-        group_name: "Chris's Room"
-        scene_name: "CODE RED"
+  - service: hue.hue_activate_scene
+    data:
+      group_name: Chris's Room
+      scene_name: CODE RED
+vent_garage:
+  alias: Vent Garage
+  sequence:
+  - if:
+    - condition: state
+      entity_id: cover.opengarage
+      state: open
+    then:
+    - device_id: 4362bfa413b1f2cf60e12e02ab892491
+      domain: cover
+      entity_id: b922587ab88f68cf5e6ec27cbd81a098
+      type: close
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 12
+        milliseconds: 0
+    - device_id: 4362bfa413b1f2cf60e12e02ab892491
+      domain: cover
+      entity_id: b922587ab88f68cf5e6ec27cbd81a098
+      type: open
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 2
+        milliseconds: 0
+    - device_id: 4362bfa413b1f2cf60e12e02ab892491
+      domain: cover
+      entity_id: b922587ab88f68cf5e6ec27cbd81a098
+      type: close
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 5
+        milliseconds: 0
+    else:
+    - choose:
+      - conditions:
+        - condition: state
+          entity_id: cover.opengarage
+          state: closed
+        sequence:
+        - device_id: 4362bfa413b1f2cf60e12e02ab892491
+          domain: cover
+          entity_id: b922587ab88f68cf5e6ec27cbd81a098
+          type: open
+        - delay:
+            hours: 0
+            minutes: 0
+            seconds: 2
+            milliseconds: 0
+        - device_id: 4362bfa413b1f2cf60e12e02ab892491
+          domain: cover
+          entity_id: b922587ab88f68cf5e6ec27cbd81a098
+          type: close
+  mode: single
+  icon: mdi:hvac
+dog_music:
+  alias: Dog Music
+  sequence:
+  - service: media_player.play_media
+    target:
+      entity_id: media_player.chris_s_echo_dot
+    data:
+      media_content_id: '"classical for pets"'
+      media_content_type: AMAZON_MUSIC
+    metadata: {}
+  mode: single
+  icon: mdi:dog
