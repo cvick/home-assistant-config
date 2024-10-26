@@ -1,5 +1,5 @@
 smart_home:
   filter:
-      exclude_entities_globs:
-        - media_player.plex*
-        - automation.*
+    exclude_entities_globs:
+      - media_player.plex*
+      - automation.*
