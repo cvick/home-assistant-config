@@ -99,15 +99,7 @@ sun:
 ios:
 
 # Enable Alexa through haaska
-alexa:
-  smart_home:
-    endpoint: https://api.amazonalexa.com/v3/events
-    client_id: alexaClientID
-    client_secret: alexaClientSecret
-    filter:
-      exclude_entity_globs:
-        - media_player.plex*
-        - automation.*
+alexa: !include alexa.yaml
 
 # HomeKit:
 homekit: !include homekit.yaml
