@@ -1,8 +1,8 @@
-  smart_home:
-    endpoint: https://api.amazonalexa.com/v3/events
-    client_id: !secret alexaClientID
-    client_secret: !secret alexaClientSecret
-    filter:
-      exclude_entities_globs:
-        - media_player.plex*
-        - automation.*
+smart_home:
+  endpoint: https://api.amazonalexa.com/v3/events
+  client_id: alexaClientID
+  client_secret: alexaClientSecret
+  filter:
+    exclude_entities_globs:
+      - media_player.plex*
+      - automation.*
