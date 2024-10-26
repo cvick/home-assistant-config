@@ -1,4 +1,3 @@
-smart_home:
   endpoint: https://api.amazonalexa.com/v3/events
   client_id: alexaClientID
   client_secret: alexaClientSecret
