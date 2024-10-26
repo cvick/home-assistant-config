@@ -99,8 +99,7 @@ sun:
 ios:
 
 # Enable Alexa through haaska
-alexa:
-  smart_home:
+alexa: !include alexa.yaml
 
 # HomeKit:
 homekit: !include homekit.yaml
