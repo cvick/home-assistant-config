@@ -35,7 +35,7 @@ recorder: !include recorder-postgres.yaml
 # Log Viewer add on
 logger:
   default: warning
-  logs:
+#  logs:
 #    homeassistant.components.homekit: debug
 #    pyhap: debug
 #    homeassistant.components.alexa: debug
