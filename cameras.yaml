@@ -18,3 +18,7 @@
       - calibration_points
       - rooms
       - room_numbers
+
+  - platform: local_file
+    file_path: !secret roborockQRevoSImage1stFloor
+    name: Q Revo S First Floor
