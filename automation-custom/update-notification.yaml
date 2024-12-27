@@ -5,6 +5,6 @@
       from: "off"
       to: "on"
   action:
-    - service: notify.mobile_app_device_tracker.chris_s_iphone
+    - service: notify.mobile_app_chris_s_iphone_14_pro_max
       data:
       message: "Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available."
