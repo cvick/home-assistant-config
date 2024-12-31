@@ -12,3 +12,16 @@
           incoming: "{{ incoming_mbps }}"
           outgoing: "{{ -outgoing_mbps }}"
         unique_id: 384d8953-9ef1-4ae4-af59-97a58a302935
+
+  - sensor:
+      - name: "OPNsense Net Traffic Mbps (DEBUG)"
+        unit_of_measurement: "Mbps"
+        state_class: measurement
+        state: >
+          Incoming: {{ states('sensor.opnsense_home_interface_wan_inbytes_kilobytes_per_second') | float(0) * 8 / 1000 }} | Outgoing: {{ states('sensor.opnsense_home_interface_wan_outbytes_kilobytes_per_second') | float(0) * 8 / 1000 }}
+        attributes:
+          incoming: "{{ states('sensor.opnsense_home_interface_wan_inbytes_kilobytes_per_second') | float(0) * 8 / 1000 }}"
+          outgoing: "{{ states('sensor.opnsense_home_interface_wan_outbytes_kilobytes_per_second') | float(0) * 8 / 1000 }}"
+        availability: >
+          {{ states('sensor.opnsense_home_interface_wan_inbytes_kilobytes_per_second') | is_number and states('sensor.opnsense_home_interface_wan_outbytes_kilobytes_per_second') | is_number }}
+        unique_id: f88a8777-d1d8-4820-9340-d476a46693a7
