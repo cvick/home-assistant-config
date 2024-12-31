@@ -125,6 +125,15 @@ system_health:
 # Enable mobile app component
 mobile_app:
 
+# Enable HA Alerts
+homeassistant_alerts:
+
+# Enable image upload
+image_upload:
+
+# Enable USB device hotplug detection
+usb:
+
 # Groups
 group: !include groups.yaml
 
