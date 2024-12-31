@@ -1,19 +1,4 @@
   - sensor:
-      - name: "OPNsense Net Traffic Mbps"
-        unit_of_measurement: "Mbps"
-        state_class: measurement
-        state: >
-          {% set incoming_kbps = states('sensor.opnsense_home_interface_wan_inbytes_kilobytes_per_second') | float(0) %}
-          {% set outgoing_kbps = states('sensor.opnsense_home_interface_wan_outbytes_kilobytes_per_second') | float(0) %}
-          {% set incoming_mbps = (incoming_kbps * 8 / 1000) | round(2) %}
-          {% set outgoing_mbps = (outgoing_kbps * 8 / 1000) | round(2) %}
-          {{ (incoming_mbps - outgoing_mbps) | round(2) }}
-        attributes:
-          incoming: "{{ incoming_mbps }}"
-          outgoing: "{{ -outgoing_mbps }}"
-        unique_id: 384d8953-9ef1-4ae4-af59-97a58a302935
-
-  - sensor:
       - name: "OPNsense Net Traffic Mbps (DEBUG)"
         unit_of_measurement: "Mbps"
         state_class: measurement
