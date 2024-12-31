@@ -1,6 +1,6 @@
   - sensor:
       - name: "OPNsense Net Traffic Bits"
-        unit_of_measurement: "bits/s" # Or your preferred unit
+        unit_of_measurement: "bits/s"
         state_class: measurement
         state: >
           {% set incoming = states('sensor.opnsense_home_interface_wan_inbytes_kilobytes_per_second') | float(0) %} # Replace with your actual incoming sensor
