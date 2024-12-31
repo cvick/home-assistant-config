@@ -146,6 +146,9 @@ script: !include scripts.yaml
 # Scenes
 scene: !include scenes.yaml
 
+# Templates
+template: !include templates.yaml
+
 # Custom Devices
 
 ## Wemo Plugs
