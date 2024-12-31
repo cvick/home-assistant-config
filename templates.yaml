@@ -3,8 +3,8 @@
         unit_of_measurement: "bits/s"
         state_class: measurement
         state: >
-          {% set incoming = states('sensor.opnsense_home_interface_wan_inbytes_kilobytes_per_second') | float(0) %} # Replace with your actual incoming sensor
-          {% set outgoing = states('sensor.opnsense_home_interface_wan_outbytes_kilobytes_per_second') | float(0) %} # Replace with your actual outgoing sensor
+          {% set incoming = states('sensor.opnsense_home_interface_wan_inbytes_kilobytes_per_second') | float(0) %}
+          {% set outgoing = states('sensor.opnsense_home_interface_wan_outbytes_kilobytes_per_second') | float(0) %}
           {{ (incoming - outgoing) | round(2) }} # Subtract outgoing from incoming
         attributes:
           incoming: "{{ incoming }}"
