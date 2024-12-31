@@ -1,0 +1,11 @@
+  - sensor:
+      - name: "OPNsense Net Traffic Bits"
+        unit_of_measurement: "bits/s" # Or your preferred unit
+        state_class: measurement
+        state: >
+          {% set incoming = states('sensor.opnsense_home_interface_wan_inbytes_kilobytes_per_second') | float(0) %} # Replace with your actual incoming sensor
+          {% set outgoing = states('sensor.opnsense_home_interface_wan_outbytes_kilobytes_per_second') | float(0) %} # Replace with your actual outgoing sensor
+          {{ (incoming - outgoing) | round(2) }} # Subtract outgoing from incoming
+        attributes:
+          incoming: "{{ incoming }}"
+          outgoing: "{{ outgoing }}"
