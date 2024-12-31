@@ -5,7 +5,7 @@
         state: >
           {% set incoming = states('sensor.opnsense_home_interface_wan_inbytes_kilobytes_per_second') | float(0) %}
           {% set outgoing = states('sensor.opnsense_home_interface_wan_outbytes_kilobytes_per_second') | float(0) %}
-          {{ (incoming - outgoing) | round(2) }} # Subtract outgoing from incoming
+          {{ (incoming - outgoing) | round(2) }}
         attributes:
           incoming: "{{ incoming }}"
           outgoing: "{{ outgoing }}"
