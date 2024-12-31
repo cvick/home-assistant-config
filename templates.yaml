@@ -28,3 +28,17 @@
         availability: >
           {{ states('sensor.opnsense_home_interface_wan_inbytes_kilobytes_per_second') | is_number and states('sensor.opnsense_home_interface_wan_outbytes_kilobytes_per_second') | is_number }}
         unique_id: 8e55eb35-adcc-4179-b9ac-e5c001917117
+
+  - sensor:
+      - name: "OPNsense Outgoing Mbps (DEBUG)"
+        unit_of_measurement: "Mbps"
+        state_class: measurement
+        state: >
+          {% if states('sensor.opnsense_home_interface_wan_outbytes_kilobytes_per_second') | is_number %}
+            {{ (states('sensor.opnsense_home_interface_wan_outbytes_kilobytes_per_second') | float(0) * 8 / 1000) | round(2) }}
+          {% else %}
+            0
+          {% endif %}
+        availability: >
+          {{ states('sensor.opnsense_home_interface_wan_outbytes_kilobytes_per_second') | is_number }}
+        unique_id: 1f0743c2-1e22-4fa7-86f3-d85d0b2d64b8
