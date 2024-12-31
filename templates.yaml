@@ -3,12 +3,28 @@
         unit_of_measurement: "Mbps"
         state_class: measurement
         state: >
-          {% set incoming_kbps = states('sensor.opnsense_home_interface_wan_inbytes_kilobytes_per_second') | float(0) %}
-          {% set outgoing_kbps = states('sensor.opnsense_home_interface_wan_outbytes_kilobytes_per_second') | float(0) %}
-          {% set incoming_mbps = (incoming_kbps * 8 / 1000) | round(2) %}
-          {% set outgoing_mbps = (outgoing_kbps * 8 / 1000) | round(2) %}
-          {{ (incoming_mbps - outgoing_mbps) | round(2) }}
+          {% if states('sensor.opnsense_home_interface_wan_inbytes_kilobytes_per_second') | is_number and states('sensor.opnsense_home_interface_wan_outbytes_kilobytes_per_second') | is_number %}
+            {% set incoming_kbps = states('sensor.opnsense_home_interface_wan_inbytes_kilobytes_per_second') | float(0) %}
+            {% set outgoing_kbps = states('sensor.opnsense_home_interface_wan_outbytes_kilobytes_per_second') | float(0) %}
+            {% set incoming_mbps = (incoming_kbps * 8 / 1000) | round(2) %}
+            {% set outgoing_mbps = (outgoing_kbps * 8 / 1000) | round(2) %}
+            {{ (incoming_mbps - outgoing_mbps) | round(2) }}
+          {% else %}
+            0
+          {% endif %}
         attributes:
-          incoming: "{{ incoming_mbps }}"
-          outgoing: "{{ -outgoing_mbps }}"
+          incoming: >
+            {% if states('sensor.opnsense_home_interface_wan_inbytes_kilobytes_per_second') | is_number %}
+                {{ states('sensor.opnsense_home_interface_wan_inbytes_kilobytes_per_second') | float(0) * 8 / 1000 }}
+            {% else %}
+              0
+            {% endif %}
+          outgoing: >
+            {% if states('sensor.opnsense_home_interface_wan_outbytes_kilobytes_per_second') | is_number %}
+                {{ -states('sensor.opnsense_home_interface_wan_outbytes_kilobytes_per_second') | float(0) * 8 / 1000 }}
+            {% else %}
+              0
+            {% endif %}
+        availability: >
+          {{ states('sensor.opnsense_home_interface_wan_inbytes_kilobytes_per_second') | is_number and states('sensor.opnsense_home_interface_wan_outbytes_kilobytes_per_second') | is_number }}
         unique_id: 8e55eb35-adcc-4179-b9ac-e5c001917117
