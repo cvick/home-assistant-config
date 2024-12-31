@@ -1,7 +1,5 @@
   - sensor:
       - name: "OPNsense Net Traffic Mbps (ATTRIBUTES DEBUG)"
-        unit_of_measurement: "Mbps"
-        state_class: measurement
         state: "Testing Attributes" # Simple state
         attributes:
           incoming: "{{ states('sensor.opnsense_home_interface_wan_inbytes_kilobytes_per_second') | float(0) * 8 / 1000 }}"
