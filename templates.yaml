@@ -8,22 +8,22 @@
             {% set outgoing_kbps = states('sensor.opnsense_home_interface_wan_outbytes_kilobytes_per_second') | float(0) %}
             {% set incoming_mbps = (incoming_kbps * 8 / 1000) | round(2) %}
             {% set outgoing_mbps = (outgoing_kbps * 8 / 1000) | round(2) %}
-            {{ (incoming_mbps - outgoing_mbps) | round(2) }}
+            {{ (incoming_mbps - outgoing_mbps) | round(2) | float }}
           {% else %}
-            0
+            0.0
           {% endif %}
         attributes:
           incoming: >
             {% if states('sensor.opnsense_home_interface_wan_inbytes_kilobytes_per_second') | is_number %}
               {{ (states('sensor.opnsense_home_interface_wan_inbytes_kilobytes_per_second') | float(0) * 8 / 1000) | round(2) }}
             {% else %}
-              0
+              0.0
             {% endif %}
           outgoing: >
             {% if states('sensor.opnsense_home_interface_wan_outbytes_kilobytes_per_second') | is_number %}
               {{ (states('sensor.opnsense_home_interface_wan_outbytes_kilobytes_per_second') | float(0) * -8 / 1000) | round(2) }}
             {% else %}
-              0
+              0.0
             {% endif %}
         availability: >
           {{ states('sensor.opnsense_home_interface_wan_inbytes_kilobytes_per_second') | is_number and states('sensor.opnsense_home_interface_wan_outbytes_kilobytes_per_second') | is_number }}
@@ -35,9 +35,9 @@
         state_class: measurement
         state: >
           {% if states('sensor.opnsense_home_interface_wan_outbytes_kilobytes_per_second') | is_number %}
-            {{ (states('sensor.opnsense_home_interface_wan_outbytes_kilobytes_per_second') | float(0) * 8 / 1000) | round(2) }}
+            {{ (states('sensor.opnsense_home_interface_wan_outbytes_kilobytes_per_second') | float(0) * 8 / 1000) | round(2) | float  }}
           {% else %}
-            0
+            0.0
           {% endif %}
         availability: >
           {{ states('sensor.opnsense_home_interface_wan_outbytes_kilobytes_per_second') | is_number }}
