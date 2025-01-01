@@ -10,7 +10,7 @@
             {% set outgoing_mbps = (outgoing_kbps * 8 / 1000) | round(2) %}
             {{ (incoming_mbps - outgoing_mbps) | round(2) | float }}
           {% else %}
-            0.0
+          0.0 # Use a float here as well
           {% endif %}
         attributes:
           incoming: >
