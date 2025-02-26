@@ -21,3 +21,5 @@ filter:
       - switch.christmas_tree
       - script.vent_garage
       - lock.garagedoor
+      - backyard_dual_plug_1
+      - backyard_dual_plug_2
