@@ -89,3 +89,14 @@
 # OhmConnect
   - platform: ohmconnect
     id: !secret ohmconnect_id
+    
+# ADSB
+  - platform: rest
+    name: FR24 Aircraft
+    resource: http://10.0.0.92:1090/data/aircraft.json
+    value_template: "{{ value_json.messages }}"
+    method: GET
+    scan_interval: 15
+    json_attributes:
+      - now
+      - aircraft
