@@ -26,3 +26,4 @@ filter:
       - light.milight_hub_backyardlights01
       - light.milight_hub_backyardlights02
       - light.milight_hub_backyardlights03
+      - input_boolean.backyard_lights_warm_white_toggle
