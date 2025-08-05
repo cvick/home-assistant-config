@@ -23,3 +23,6 @@ filter:
       - lock.garagedoor
       - switch.backyard_dual_plug_1
       - switch.backyard_dual_plug_2
+      - light.milight_hub_backyardlights01
+      - light.milight_hub_backyardlights02
+      - light.milight_hub_backyardlights03
