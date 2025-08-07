@@ -188,7 +188,7 @@
   use_blueprint:
     path: EPMatt/persistent_notification_to_mobile.yaml
     input:
-      mobile_notify_service: mobile_app_chris_s_iphone
+      mobile_notify_service: service.mobile_app_chris_s_iphone_14_pro_max
 - id: '1638004070255'
   alias: Web UI Notifications to HA app
   description: ''
@@ -428,13 +428,13 @@
 - id: '1646596993998'
   alias: Motion - Upstairs Bathroom Light - Normal Light
   description: Turn on if after sundown and before midnight
-  trigger:
+  triggers:
   - type: motion
-    platform: device
-    device_id: c4e05f87790f403d5cd1fca49f0adf8a
-    entity_id: 0e3c79d4d714f1df83c2e57b2cc28838
+    device_id: 0ecfe2b54d2138c72a19b4baf33a2987
+    entity_id: b0ecf34206463e3fdbd692a032276e77
     domain: binary_sensor
-  condition:
+    trigger: device
+  conditions:
   - condition: sun
     after: sunset
   - condition: device
@@ -452,25 +452,25 @@
     - wed
     - tue
     - mon
-  action:
+  actions:
   - type: turn_on
     device_id: f716a4d5908662d57e3e03b231088098
     entity_id: light.upstairs_bathroom_light
     domain: light
     brightness_pct: 50
-  mode: restart
+  mode: single
 - id: '1646644319478'
   alias: Motion - Upstairs Bathroom Light - Nightlight
   description: ''
-  trigger:
+  triggers:
   - type: motion
-    platform: device
-    device_id: b2259036d5cb481cd837164f924fb7b6
-    entity_id: binary_sensor.upstairs_bathroom_sensor_home_security_motion_detection
+    device_id: 0ecfe2b54d2138c72a19b4baf33a2987
+    entity_id: b0ecf34206463e3fdbd692a032276e77
     domain: binary_sensor
-  condition:
+    trigger: device
+  conditions:
   - condition: time
-    before: 00:00:00
+    before: 07:00:00
     weekday:
     - mon
     - tue
@@ -487,61 +487,62 @@
     device_id: f716a4d5908662d57e3e03b231088098
     entity_id: light.upstairs_bathroom_light
     domain: light
-  action:
+  actions:
   - type: turn_on
     device_id: f716a4d5908662d57e3e03b231088098
     entity_id: light.upstairs_bathroom_light
     domain: light
-    brightness_pct: 20
+    brightness_pct: 15
   mode: restart
 - id: '1646723972912'
   alias: Humidity - Upstairs Bathroom Fan On
   description: ''
-  trigger:
+  triggers:
   - type: humidity
-    platform: device
-    device_id: b2259036d5cb481cd837164f924fb7b6
-    entity_id: sensor.upstairs_bathroom_sensor_humidity
+    device_id: 0ecfe2b54d2138c72a19b4baf33a2987
+    entity_id: 4f3f6c001d989d6d3663d2a7dbd5b8e1
     domain: sensor
-    above: 60
-  condition: []
-  action:
+    trigger: device
+    above: 70
+  conditions: []
+  actions:
   - type: turn_on
     device_id: 974156a1a00d048ba59b19a94af2a6be
     entity_id: switch.upstairs_bathroom_fan
     domain: switch
-  - service: input_boolean.turn_on
-    data: {}
+  - data: {}
     target:
       entity_id: input_boolean.upstairs_bathroom_fan_automation
+    action: input_boolean.turn_on
   mode: single
 - id: '1646724050645'
   alias: Humidity - Upstairs Bathroom Fan Off
   description: ''
-  trigger:
+  triggers:
   - type: humidity
-    platform: device
-    device_id: b2259036d5cb481cd837164f924fb7b6
-    entity_id: sensor.upstairs_bathroom_sensor_humidity
+    device_id: 0ecfe2b54d2138c72a19b4baf33a2987
+    entity_id: 4f3f6c001d989d6d3663d2a7dbd5b8e1
     domain: sensor
-    below: 59
+    trigger: device
+    below: 69
     for:
       hours: 0
       minutes: 5
       seconds: 0
-  condition:
+  conditions:
   - condition: state
     entity_id: input_boolean.upstairs_bathroom_fan_automation
     state: 'on'
-  action:
+    enabled: true
+  actions:
   - type: turn_on
     device_id: 974156a1a00d048ba59b19a94af2a6be
     entity_id: switch.upstairs_bathroom_fan
     domain: switch
-  - service: input_boolean.turn_off
-    data: {}
+  - data: {}
     target:
       entity_id: input_boolean.upstairs_bathroom_fan_automation
+    action: input_boolean.turn_off
   - type: turn_off
     device_id: 974156a1a00d048ba59b19a94af2a6be
     entity_id: switch.upstairs_bathroom_fan
@@ -624,6 +625,7 @@
       - binary_sensor.smoke_co_andrew_smoke_detected
       - binary_sensor.smoke_co_chris_smoke_detected
       - binary_sensor.smoke_co_master_smoke_detected
+      - binary_sensor.smoke_co_entryway_smoke_detected
 - id: '1677303703687'
   alias: Smoke Detector Notification
   description: ''
@@ -689,4 +691,179 @@
     data: {}
     target:
       entity_id: cover.opengarage
+  mode: single
+- id: '1722139501527'
+  alias: Porch Light - Off at 10:30pm
+  description: ''
+  trigger:
+  - platform: time
+    at: '22:30:00'
+  condition: []
+  action:
+  - type: turn_off
+    device_id: e3be87619ce7a753fc139b121a390da2
+    entity_id: 84fea6afd2372ff31d76bf5bf7823487
+    domain: switch
+  - service: input_boolean.turn_off
+    target:
+      entity_id:
+      - input_boolean.front_door_porch_light_automation
+    data: {}
+  mode: restart
+- id: '1735008360106'
+  alias: Christmas - Plugs On
+  description: ''
+  triggers:
+  - trigger: sun
+    event: sunset
+    offset: -00:30:00
+  conditions: []
+  actions:
+  - type: turn_on
+    device_id: 9ca2aacccedcc228d7e29023a1d39978
+    entity_id: 1c6dffa1448771c9070673692e2d0619
+    domain: switch
+  - type: turn_on
+    device_id: 6749c3a811449cf91d7fe553406e0c08
+    entity_id: 814b30e59e7f2fe712a0cc4f38995b3b
+    domain: switch
+  mode: single
+- id: '1735008418086'
+  alias: Christmas - Plugs Off
+  description: ''
+  triggers:
+  - trigger: time
+    at: 01:00:00
+  conditions: []
+  actions:
+  - type: turn_off
+    device_id: 9ca2aacccedcc228d7e29023a1d39978
+    entity_id: 1c6dffa1448771c9070673692e2d0619
+    domain: switch
+  - type: turn_off
+    device_id: 6749c3a811449cf91d7fe553406e0c08
+    entity_id: 814b30e59e7f2fe712a0cc4f38995b3b
+    domain: switch
+  mode: single
+- id: '1752821610695'
+  alias: Low Battery Notification
+  description: ''
+  use_blueprint:
+    path: Blackshome/low-battery-notifications-and-actions.yaml
+    input:
+      include_easy_notify: enable_easy_notify
+      include_persistent_notification: enable_persistent_notification
+      notify_device:
+      - 308a5461c88714619b05216a1104f40c
+- id: '1754366972855'
+  alias: Backyard Lights - Warm White
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - input_boolean.backyard_lights_warm_white_toggle
+    from: 'off'
+    to: 'on'
+  conditions: []
+  actions:
+  - action: light.turn_on
+    metadata: {}
+    data:
+      color_temp_kelvin: 2755
+      brightness_pct: 100
+    target:
+      entity_id:
+      - light.milight_hub_backyardlights01
+      - light.milight_hub_backyardlights02
+      - light.milight_hub_backyardlights03
+    enabled: false
+  - repeat:
+      count: 5
+      sequence:
+      - action: light.turn_on
+        metadata: {}
+        data:
+          color_temp_kelvin: 2641
+          brightness_pct: 100
+        target:
+          entity_id:
+          - light.milight_hub_backyardlights01
+          - light.milight_hub_backyardlights02
+          - light.milight_hub_backyardlights03
+  mode: single
+- id: '1754367070450'
+  alias: Backyard Lights - Off
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - input_boolean.backyard_lights_warm_white_toggle
+    - input_boolean.backyard_lights_tropical_toggle
+    from: 'on'
+    to: 'off'
+  conditions: []
+  actions:
+  - action: light.turn_off
+    metadata: {}
+    data: {}
+    target:
+      entity_id:
+      - light.milight_hub_backyardlights01
+      - light.milight_hub_backyardlights02
+      - light.milight_hub_backyardlights03
+    enabled: false
+  - repeat:
+      count: 5
+      sequence:
+      - action: light.turn_off
+        metadata: {}
+        data: {}
+        target:
+          entity_id:
+          - light.milight_hub_backyardlights01
+          - light.milight_hub_backyardlights02
+          - light.milight_hub_backyardlights03
+  mode: single
+- id: '1754367550177'
+  alias: Backyard Lights - Tropical
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - input_boolean.backyard_lights_tropical_toggle
+    from: 'off'
+    to: 'on'
+  conditions: []
+  actions:
+  - action: light.turn_on
+    metadata: {}
+    data:
+      brightness_pct: 100
+      rgb_color:
+      - 252
+      - 164
+      - 124
+    target:
+      entity_id:
+      - light.milight_hub_backyardlights01
+  - action: light.turn_on
+    metadata: {}
+    data:
+      brightness_pct: 100
+      rgb_color:
+      - 35
+      - 206
+      - 217
+    target:
+      entity_id: light.milight_hub_backyardlights02
+  - action: light.turn_on
+    metadata: {}
+    data:
+      brightness_pct: 100
+      rgb_color:
+      - 9
+      - 124
+      - 135
+    target:
+      entity_id: light.milight_hub_backyardlights03
   mode: single
