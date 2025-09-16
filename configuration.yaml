@@ -153,3 +153,6 @@ template: !include templates.yaml
 
 ## Wemo Plugs
 wemo: !include wemo.yaml
+
+# Enable Battery Notes from HACS
+battery_notes:
