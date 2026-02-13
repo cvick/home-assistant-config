@@ -28,3 +28,4 @@ filter:
       - light.milight_hub_backyardlights03
       - input_boolean.backyard_lights_warm_white_toggle
       - input_boolean.backyard_lights_tropical_toggle
+      - light.andrew_s_room
