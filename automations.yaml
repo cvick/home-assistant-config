@@ -125,11 +125,11 @@
         entity_id: []
         device_id:
         - b1703148bf9271629229093fb2992ccf
-        - e509a7fbf9cd5b73e1d765b532047e83
+        - 933717181271327dfcd90db3943432ff
       actions:
-      - service: notify.ios_chriss_iphone
-        data:
+      - data:
           message: '{{sensors}} is at or below 20% battery'
+        action: notify.ios_chriss_iphone
       day: 7
 - id: '1637312436126'
   alias: Entryway Garage Door Opens = Turn On Garage Light
@@ -206,39 +206,35 @@
 - id: '1638004546075'
   alias: Water Detected = Send HA app notification
   description: ''
-  trigger:
+  triggers:
   - type: moist
-    platform: device
     device_id: 7fc49e2c9a338e32bf47fd916df3af11
     entity_id: binary_sensor.garage_wh_water_leak_sensor_water_alarm_water_leak_detected
     domain: binary_sensor
+    trigger: device
   - type: moist
-    platform: device
     device_id: 7762a17897742b14981c4446f0db836f
     entity_id: binary_sensor.washing_machine_water_leak_sensor_water_alarm_water_leak_detected
     domain: binary_sensor
+    trigger: device
   - type: moist
-    platform: device
     device_id: f29bae01a48b0cbc9ba42ac0e1d44639
     entity_id: binary_sensor.half_bath_water_leak_sensor_water_alarm_water_leak_detected
     domain: binary_sensor
+    trigger: device
   - type: moist
-    platform: device
     device_id: 415921375f059bd1b36aa784a880bbac
     entity_id: binary_sensor.hvac_water_leak_sensor_water_alarm_water_leak_detected
     domain: binary_sensor
-  condition: []
-  action:
-  - service: notify.mobile_app_chris_s_iphone
+    trigger: device
+  conditions: []
+  actions:
+  - action: notify.notify
+    metadata: {}
     data:
-      title: Water Leak Detected
       message: Water leak has been detected at the {{device.name}}
-      data:
-        push:
-          sound:
-            name: US-EN-Alexa-Water-Detected-Generic.wav
-            critical: 1
-            volume: 1
+      title: Water Detected!
+      target: mobile_app_chris_s_iphone_17_pro_max
   mode: restart
 - id: '1638155702390'
   alias: Send Web UI persistent notifications to Mobile Devices
@@ -386,7 +382,7 @@
   use_blueprint:
     path: EPMatt/persistent_notification_to_mobile.yaml
     input:
-      mobile_notify_service: mobile_app_chris_s_iphone
+      mobile_notify_service: service.mobile_app_chris_s_iphone_17_pro_max
 - id: '1639586299863'
   alias: Grafana - HVAC - Get Image
   description: ''
@@ -614,7 +610,7 @@
   use_blueprint:
     path: bbbenji/leak-detector-notifier.yaml
     input:
-      notify_device: e509a7fbf9cd5b73e1d765b532047e83
+      notify_device: 933717181271327dfcd90db3943432ff
 - id: '1677303092503'
   alias: Smoke Alert
   description: ''
@@ -629,29 +625,34 @@
 - id: '1677303703687'
   alias: Smoke Detector Notification
   description: ''
-  trigger:
+  triggers:
   - type: smoke
-    platform: device
     device_id: 769df9de0132834466382d98fb7c81f1
     entity_id: binary_sensor.smoke_co_chris_smoke_detected
     domain: binary_sensor
+    trigger: device
   - type: smoke
-    platform: device
     device_id: 3446fbd11ae0d751f61ace6f6799bf25
     entity_id: binary_sensor.smoke_co_andrew_smoke_detected
     domain: binary_sensor
+    trigger: device
   - type: smoke
-    platform: device
     device_id: b186d9a2a9cda67cb8a42a50a6e4c6cb
     entity_id: binary_sensor.smoke_co_master_smoke_detected
     domain: binary_sensor
-  condition: []
-  action:
-  - service: notify.notify
-    data:
-      target: e509a7fbf9cd5b73e1d765b532047e83
+    trigger: device
+  - type: smoke
+    device_id: c18932d0cdb6da680aa1a46557cfc655
+    entity_id: 0a956344276edec8d56d81758d580382
+    domain: binary_sensor
+    trigger: device
+  conditions: []
+  actions:
+  - data:
       title: FIRE / SMOKE DETECTED
       message: '{{ trigger.to_state.name }}'
+      target: 01KCN9437PHHS70TQE1Q5F70D8
+    action: notify.notify
   mode: single
 - id: '1709173532025'
   alias: Vent Garage
@@ -725,7 +726,7 @@
     domain: switch
   - type: turn_on
     device_id: 6749c3a811449cf91d7fe553406e0c08
-    entity_id: 814b30e59e7f2fe712a0cc4f38995b3b
+    entity_id: c1edeb32479891df936b6a88ac643acc
     domain: switch
   mode: single
 - id: '1735008418086'
@@ -733,7 +734,7 @@
   description: ''
   triggers:
   - trigger: time
-    at: 01:00:00
+    at: '23:00:00'
   conditions: []
   actions:
   - type: turn_off
@@ -742,7 +743,7 @@
     domain: switch
   - type: turn_off
     device_id: 6749c3a811449cf91d7fe553406e0c08
-    entity_id: 814b30e59e7f2fe712a0cc4f38995b3b
+    entity_id: c1edeb32479891df936b6a88ac643acc
     domain: switch
   mode: single
 - id: '1752821610695'
@@ -754,7 +755,8 @@
       include_easy_notify: enable_easy_notify
       include_persistent_notification: enable_persistent_notification
       notify_device:
-      - 308a5461c88714619b05216a1104f40c
+      - 933717181271327dfcd90db3943432ff
+      - b1703148bf9271629229093fb2992ccf
 - id: '1754366972855'
   alias: Backyard Lights - Warm White
   description: ''
@@ -778,13 +780,13 @@
       - light.milight_hub_backyardlights03
     enabled: false
   - repeat:
-      count: 5
+      count: 8
       sequence:
       - action: light.turn_on
         metadata: {}
         data:
           color_temp_kelvin: 2641
-          brightness_pct: 100
+          brightness_pct: 50
         target:
           entity_id:
           - light.milight_hub_backyardlights01
@@ -813,7 +815,7 @@
       - light.milight_hub_backyardlights03
     enabled: false
   - repeat:
-      count: 5
+      count: 8
       sequence:
       - action: light.turn_off
         metadata: {}
@@ -861,9 +863,86 @@
     data:
       brightness_pct: 100
       rgb_color:
-      - 9
-      - 124
-      - 135
+      - 0
+      - 255
+      - 0
     target:
       entity_id: light.milight_hub_backyardlights03
+  mode: single
+- id: '1764054331202'
+  alias: Battery Notes - Battery Replaced
+  description: ''
+  use_blueprint:
+    path: andrew-codechimp/battery_notes_battery_replaced.yaml
+- id: '1764054362740'
+  alias: Battery Notes - Battery Not Reported
+  description: ''
+  use_blueprint:
+    path: andrew-codechimp/battery_notes_battery_not_reported.yaml
+- id: '1770949167458'
+  alias: Lights - Andrew's Room - On
+  description: ''
+  triggers:
+  - type: turned_on
+    device_id: 67954d246e6fc4550b8e93341be9b0a3
+    entity_id: f557eb3fa58ad88fd5dfcb9654b0ae12
+    domain: light
+    trigger: device
+  conditions: []
+  actions:
+  - type: turn_on
+    device_id: 44670052e8ce56dac43466fa89de23bf
+    entity_id: 877f842c3aea5ac6ed6c0982bc75ecd2
+    domain: light
+    brightness_pct: 99
+  mode: single
+- id: '1770949258296'
+  alias: Lights - Andrew's Room - Off
+  description: ''
+  triggers:
+  - type: turned_off
+    device_id: 67954d246e6fc4550b8e93341be9b0a3
+    entity_id: f557eb3fa58ad88fd5dfcb9654b0ae12
+    domain: light
+    trigger: device
+  conditions: []
+  actions:
+  - type: turn_off
+    device_id: 44670052e8ce56dac43466fa89de23bf
+    entity_id: 877f842c3aea5ac6ed6c0982bc75ecd2
+    domain: light
+  mode: single
+- id: '1770954671964'
+  alias: System - Restart Zigbee2MQTT after HA Backup
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - event.backup_automatic_backup
+    attribute: event_type
+    from:
+    - in_progress
+    to:
+    - completed
+    for:
+      hours: 0
+      minutes: 1
+      seconds: 0
+  conditions:
+  - condition: state
+    entity_id: binary_sensor.zigbee2mqtt_bridge_connection_state
+    state:
+    - 'off'
+    - unavailable
+    - unknown
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+  actions:
+  - action: button.press
+    metadata: {}
+    data: {}
+    target:
+      entity_id: button.zigbee2mqtt_bridge_restart
   mode: single
