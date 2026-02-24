@@ -158,4 +158,4 @@ wemo: !include wemo.yaml
 file: !include files.yaml
 
 # Local Files
-local_file: !include local_file.yaml
+# local_file: !include local_file.yaml
