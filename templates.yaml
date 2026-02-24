@@ -42,3 +42,16 @@
         availability: >
           {{ states('sensor.opnsense_home_interface_wan_outbytes_kilobytes_per_second') | is_number }}
         unique_id: 1f0743c2-1e22-4fa7-86f3-d85d0b2d64b8
+
+  - sensor:
+    - name: "Downstairs Temperature"
+      unique_id: indoor_temp_downstairs
+      unit_of_measurement: "°F"
+      state: "{{ state_attr('climate.downstairs', 'current_temperature') }}"
+      device_class: temperature
+
+    - name: "Upstairs Temperature"
+      unique_id: indoor_temp_upstairs
+      unit_of_measurement: "°F"
+      state: "{{ state_attr('climate.upstairs', 'current_temperature') }}"
+      device_class: temperature
