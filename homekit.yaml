@@ -6,7 +6,6 @@ auto_start: true
 
 filter:
     include_entities:
-      - switch.lights
       - switch.living_room_lights
       - light.kitchen_lights
       - switch.porch_light
@@ -28,5 +27,7 @@ filter:
       - light.milight_hub_backyardlights03
       - input_boolean.backyard_lights_warm_white_toggle
       - input_boolean.backyard_lights_tropical_toggle
-      - light.andrew_s_room
+      - light.andrew_hue_color_lamp_5
+      - light.andrew_hue_color_lamp_6
+      - light.andrew_hue_color_lamp_4_2
       - light.upstairs_bathroom_light
