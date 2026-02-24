@@ -31,3 +31,7 @@ filter:
       - light.andrew_hue_color_lamp_6
       - light.andrew_hue_color_lamp_4_2
       - light.upstairs_bathroom_light
+      - light.chris_hue_color_lamp_1
+      - light.chris_hue_color_lamp_2
+      - light.chris_hue_color_lamp_3
+      - light.chris_hue_color_lamp_4
