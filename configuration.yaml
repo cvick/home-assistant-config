@@ -39,6 +39,7 @@ logger:
 #    homeassistant.components.homekit: debug
 #    pyhap: debug
 #    homeassistant.components.alexa: debug
+
 # Enables the frontend
 frontend:
   themes: !include_dir_merge_named themes
