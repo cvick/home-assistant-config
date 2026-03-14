@@ -17,7 +17,7 @@ homeassistant:
 
   # Customization file
   customize: !include customize.yaml
-  customize_glob: !include customize_glob.yaml
+  #customize_glob: !include customize_glob.yaml
 
 # Use Postgres for logging
 recorder: !include recorder-postgres.yaml
