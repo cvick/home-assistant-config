@@ -19,16 +19,6 @@ homeassistant:
   customize: !include customize.yaml
   customize_glob: !include customize_glob.yaml
 
-  # Save data to Influxfor use in graphs
-influxdb:
-  api_version: 2
-  host: 10.0.0.80
-  port: 8086
-  ssl: false
-  organization: baa8bcc736bfe0a0
-  token: !secret influxtoken
-  bucket: home-assistant
-
 # Use Postgres for logging
 recorder: !include recorder-postgres.yaml
 
