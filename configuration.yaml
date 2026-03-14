@@ -57,21 +57,11 @@ energy:
 # HACS plug-in - remote syslog
 remote_syslog:
 
-# Enables helpers
-input_boolean:
-input_datetime:
-input_number:
-input_select:
-input_text:
-counter:
-timer:
-
 # shell_command
 shell_command: !include shell_command.yaml
 
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 http:
-  #   base_url: example.duckdns.org:8123
   use_x_forwarded_for: true
   trusted_proxies:
     - 10.0.0.85
